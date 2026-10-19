@@ -24,18 +24,32 @@
             position: relative;
         }
 
-        /* ĐÃ SỬA LỖI: Lớp nền canvas được hạ xuống dưới cùng và chặn bắt chuột để không đè lên nút */
-        .sparkle-canvas {
+        /* KHÔNG GIAN HOA DI ĐỘNG RƠI LUNG LINH NỀN */
+        .flower-rain-container {
             position: absolute;
             top: 0; left: 0;
             width: 100%; height: 100%;
             pointer-events: none;
-            z-index: 1; /* Hạ xuống lớp dưới cùng */
+            z-index: 1;
         }
 
-        /* Khung thiệp mở rộng to rộng rãi, đẩy lên trên cùng */
+        .falling-item {
+            position: absolute;
+            top: -20px;
+            pointer-events: none;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Khung thiệp thiết kế nổi bật, đẩy z-index cao để luôn click được */
         .card-container {
-            background: rgba(255, 255, 255, 0.94);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(15px);
             padding: 55px 40px;
             border-radius: 30px;
@@ -45,8 +59,7 @@
             border: 2px solid rgba(255, 255, 255, 0.9);
             text-align: center;
             position: relative;
-            z-index: 10; /* Đưa lên trên để tương tác mượt mà */
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 999; /* Đảm bảo an toàn tuyệt đối, nằm trên cùng màn hình */
         }
 
         .page { display: none; animation: fadeIn 0.6s ease-in-out forwards; }
@@ -69,7 +82,6 @@
         
         p { color: #5a5a5a; font-size: 18px; line-height: 1.7; margin-bottom: 35px; }
 
-        /* Nút bấm to, rõ ràng và nằm ở lớp trên cùng */
         button {
             padding: 15px 45px;
             font-size: 18px;
@@ -81,8 +93,6 @@
             cursor: pointer;
             box-shadow: 0 5px 20px rgba(255, 117, 140, 0.4);
             transition: all 0.3s ease;
-            position: relative;
-            z-index: 25; /* Ưu tiên cao nhất */
         }
 
         button:hover {
@@ -90,7 +100,6 @@
             box-shadow: 0 8px 25px rgba(255, 117, 140, 0.6);
         }
 
-        /* Ô nhập chữ thiết kế to rộng */
         input[type="text"] {
             width: 100%;
             max-width: 450px;
@@ -103,8 +112,6 @@
             transition: all 0.3s;
             margin-bottom: 30px;
             background: rgba(255, 255, 255, 0.95);
-            position: relative;
-            z-index: 25;
             color: #333;
         }
 
@@ -113,14 +120,12 @@
             box-shadow: 0 0 15px rgba(255, 117, 140, 0.25);
         }
 
-        /* Khu vực hiển thị hoa đáng yêu */
+        /* Khu vực hiển thị 3 bông hoa mặt cười hình của bạn gửi */
         .flower-container {
             display: flex;
             justify-content: center;
             gap: 30px;
             margin: 35px 0;
-            position: relative;
-            z-index: 25;
             flex-wrap: wrap;
         }
 
@@ -133,8 +138,8 @@
         }
 
         .flower-bubble {
-            width: 100px;
-            height: 100px;
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
             background: white;
             border: 3px solid #ffe3e7;
@@ -144,15 +149,15 @@
             align-items: center;
             overflow: hidden;
             margin-bottom: 8px;
-            background-size: 65%;
+            background-size: 85%;
             background-repeat: no-repeat;
             background-position: center;
         }
 
-        /* Hình ảnh hoa dễ thương theo đúng mẫu gửi */
-        #flower1 .flower-bubble { background-image: url('https://postimg.cc'); }
-        #flower2 .flower-bubble { background-image: url('https://postimg.cc'); }
-        #flower3 .flower-bubble { background-image: url('https://postimg.cc'); }
+        /* Liên kết ảnh trực tiếp từ dữ liệu hình ảnh mặt cười dễ thương của bạn */
+        #flower1 .flower-bubble { background-image: url('https://imgbox.com'); }
+        #flower2 .flower-bubble { background-image: url('https://imgbox.com'); }
+        #flower3 .flower-bubble { background-image: url('https://imgbox.com'); }
 
         .flower-label {
             font-size: 14px;
@@ -173,7 +178,6 @@
             box-shadow: 0 10px 25px rgba(255, 117, 140, 0.35);
         }
 
-        /* Vùng hiển thị kết quả dễ thương */
         #resultBox {
             margin-top: 25px;
             padding: 25px;
@@ -192,7 +196,8 @@
 </head>
 <body>
 
-    <canvas id="sparkleCanvas" class="sparkle-canvas"></canvas>
+    <!-- KHÔNG GIAN CHỨA HOA VÀ TIM RƠI TỰ ĐỘNG -->
+    <div class="flower-rain-container" id="flowerRain"></div>
 
     <div class="card-container">
         
@@ -203,10 +208,10 @@
             <button onclick="nextPage(2)">Bắt đầu khám phá ✨</button>
         </div>
 
-        <!-- TRANG 2: NHẬP TÊN CÂU TỪ MỚI DỄ THƯƠNG -->
+        <!-- TRANG 2: NHẬP TÊN DỄ THƯƠNG -->
         <div id="page2" class="page">
-            <h2>CHÀO CHỊ, CHO TỤI EM BIẾT TÊN NHÉ! 🥰</h2>
-            <p>Hãy cho tụi em biết tên để tụi em gửi một chút ngọt ngào và năng lượng tích cực đến riêng chị nha!</p>
+            <h2> XIN CHÀO NGƯỜI ĐẸP, CHO TỤI EM BIẾT TÊN CỦA NGƯỜI ĐẸP LÀ GÌ 🥰</h2>
+            <p>Hãy cho tụi em biết tên để cùng tụi em khám phá những điều thú vị ở sau nhé. </p>
             <input type="text" id="userName" placeholder="Nhập tên đáng yêu của chị vào đây...">
             <br>
             <button onclick="validateAndGo()">Tiếp tục ➔</button>
@@ -214,8 +219,8 @@
 
         <!-- TRANG 3: CHỌN HOA MẶT CƯỜI ĐÁNG YÊU -->
         <div id="page3" class="page">
-            <h2>XIN MỜI CHỊ CHỌN 1 BÔNG HOA MAY MẮN 🌷</h2>
-            <p>Mỗi bông hoa ẩn giấu một thông điệp năng lượng tích cực khác nhau dành riêng cho chị trong ngày hôm nay.</p>
+            <h2>XIN MỜI NGƯỜI ĐẸP CỦA EM CHỌN 1 BÔNG HOA 🌷</h2>
+            <p>Mỗi bông hoa đang ẩn chứa một thông điệp nhỏ dành riêng cho người đẹp.</p>
             
             <div class="flower-container">
                 <div class="flower-item" id="flower1" onclick="pickFlower(this)">
@@ -241,36 +246,30 @@
     </div>
 
     <script>
-        // Hiệu ứng mưa bụi sáng nhẹ nhàng bay nền
-        const canvas = document.getElementById('sparkleCanvas');
-        const ctx = canvas.getContext('2d');
-        let particles = [];
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+        // Tạo hiệu ứng mưa cánh hoa và tim rơi bằng CSS tự động
+        const rainContainer = document.getElementById('flowerRain');
+        const items = ['🌸', '💕', '✨', '🌹', '❤️'];
+        
+        function createFallingItem() {
+            const item = document.createElement('div');
+            item.classList.add('falling-item');
+            item.innerText = items[Math.floor(Math.random() * items.length)];
+            
+            item.style.left = Math.random() * 100 + 'vw';
+            item.style.fontSize = Math.random() * 15 + 15 + 'px';
+            item.style.animationDuration = Math.random() * 3 + 4 + 's'; // Rơi từ 4-7 giây
+            
+            rainContainer.appendChild(item);
+            
+            // Xóa phần tử sau khi rơi xong để tránh nặng web
+            setTimeout(() => { item.remove(); }, 7000);
         }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
 
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height - canvas.height;
-                this.size = Math.random() * 3 + 1;
-                this.speed = Math.random() * 0.8 + 0.4;
-                this.alpha = Math.random() * 0.6 + 0.3;
-                this.angle = Math.random() * 2;
-            }
-            update() {
-                this.y += this.speed;
-                this.x += Math.sin(this.angle) * 0.2;
-                this.angle += 0.01;
-                if (this.y > canvas.height) {
-                    this.y = -10;
-                    this.x = Math.random() * canvas.width;
-                }
-            }
-            draw() {
-                ctx.save();
-                ctx.globalAlpha = this.alpha;
+        // Tạo phần tử rơi đều đặn mỗi 300 mili giây
+        setInterval(createFallingItem, 300);
+
+        function nextPage(pageNumber) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById('page' + pageNumber).classList.add('active');
+        }
+
