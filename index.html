@@ -24,28 +24,28 @@
             position: relative;
         }
 
-        /* Hiệu ứng hạt bụi lấp lánh rơi tràn màn hình */
+        /* ĐÃ SỬA LỖI: Lớp nền canvas được hạ xuống dưới cùng và chặn bắt chuột để không đè lên nút */
         .sparkle-canvas {
             position: absolute;
             top: 0; left: 0;
             width: 100%; height: 100%;
             pointer-events: none;
-            z-index: 2;
+            z-index: 1; /* Hạ xuống lớp dưới cùng */
         }
 
-        /* Khung thiệp mở rộng to rộng rãi, tràn màn hình chuyên nghiệp */
+        /* Khung thiệp mở rộng to rộng rãi, đẩy lên trên cùng */
         .card-container {
             background: rgba(255, 255, 255, 0.94);
             backdrop-filter: blur(15px);
             padding: 55px 40px;
             border-radius: 30px;
             width: 95%;
-            max-width: 650px; /* Tăng chiều rộng để khung rộng rãi hơn */
+            max-width: 650px; 
             box-shadow: var(--shadow-glow);
             border: 2px solid rgba(255, 255, 255, 0.9);
             text-align: center;
             position: relative;
-            z-index: 10;
+            z-index: 10; /* Đưa lên trên để tương tác mượt mà */
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -69,7 +69,7 @@
         
         p { color: #5a5a5a; font-size: 18px; line-height: 1.7; margin-bottom: 35px; }
 
-        /* Nút bấm to, rõ ràng */
+        /* Nút bấm to, rõ ràng và nằm ở lớp trên cùng */
         button {
             padding: 15px 45px;
             font-size: 18px;
@@ -82,7 +82,7 @@
             box-shadow: 0 5px 20px rgba(255, 117, 140, 0.4);
             transition: all 0.3s ease;
             position: relative;
-            z-index: 20;
+            z-index: 25; /* Ưu tiên cao nhất */
         }
 
         button:hover {
@@ -104,7 +104,7 @@
             margin-bottom: 30px;
             background: rgba(255, 255, 255, 0.95);
             position: relative;
-            z-index: 20;
+            z-index: 25;
             color: #333;
         }
 
@@ -120,7 +120,7 @@
             gap: 30px;
             margin: 35px 0;
             position: relative;
-            z-index: 20;
+            z-index: 25;
             flex-wrap: wrap;
         }
 
@@ -149,7 +149,7 @@
             background-position: center;
         }
 
-        /* Định dạng từng bông hoa theo hình của bạn gửi */
+        /* Hình ảnh hoa dễ thương theo đúng mẫu gửi */
         #flower1 .flower-bubble { background-image: url('https://postimg.cc'); }
         #flower2 .flower-bubble { background-image: url('https://postimg.cc'); }
         #flower3 .flower-bubble { background-image: url('https://postimg.cc'); }
@@ -274,5 +274,3 @@
             draw() {
                 ctx.save();
                 ctx.globalAlpha = this.alpha;
-                ctx.fillStyle = '#ffccd5';
-                ctx.beginPath();
