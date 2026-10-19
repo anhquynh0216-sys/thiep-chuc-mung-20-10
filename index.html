@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng Ngày Đặc Biệt</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; text-align: center; background: #ffe3e3; color: #333; padding: 20px; }
+        .box { background: white; padding: 30px; border-radius: 15px; display: inline-block; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-top: 50px; }
+        input { padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 10px; }
+        button { padding: 10px 20px; font-size: 16px; background: #ff4d6d; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        .flower-container { margin-top: 30px; display: flex; justify-content: center; gap: 20px; }
+        .flower { font-size: 50px; cursor: pointer; transition: transform 0.2s; }
+        .flower:hover { transform: scale(1.2); }
+        #result { margin-top: 20px; font-size: 20px; font-weight: bold; color: #ff4d6d; min-height: 50px; }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h2>🌸 CHÀO MỪNG CÁC CHỊ EM 🌸</h2>
+        <p>Vui lòng nhập tên của bạn:</p>
+        <input type="text" id="userName" placeholder="Nhập tên tại đây...">
+        
+        <p>Chọn 1 bông hoa để nhận thông điệp ngẫu nhiên:</p>
+        <div class="flower-container">
+            <span class="flower" onclick="pickFlower()">🌹</span>
+            <span class="flower" onclick="pickFlower()">🌻</span>
+            <span class="flower" onclick="pickFlower()">🌷</span>
+        </div>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        // Danh sách các lời chúc ngẫu nhiên bạn có thể tự sửa đổi tại đây
+        const wishes = [
+            "Chúc bạn một ngày tràn ngập niềm vui, luôn xinh đẹp và rạng rỡ!",
+            "Mong rằng mọi điều may mắn và hạnh phúc nhất sẽ đến với bạn ngày hôm nay.",
+            "Chúc bạn luôn tự tin, yêu đời và gặt hái được nhiều thành công lớn!",
+            "Bạn là một bông hoa độc nhất vô nhị. Hãy luôn tỏa sáng theo cách của riêng mình nhé!"
+        ];
+
+        function pickFlower() {
+            const name = document.getElementById('userName').value.trim();
+            if (!name) {
+                alert("Vui lòng nhập tên trước khi chọn hoa bạn nhé!");
+                return;
+            }
+            
+            // Lấy ngẫu nhiên một câu chúc
+            const randomWish = wishes[Math.floor(Math.random() * wishes.length)];
+            
+            // Hiển thị kết quả cá nhân hóa
+            document.getElementById('result').innerHTML = `Chào chị ${name}! <br> ✨ ${randomWish}`;
+        }
+    </script>
+</body>
+</html>
