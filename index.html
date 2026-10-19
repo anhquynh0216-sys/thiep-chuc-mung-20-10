@@ -4,13 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thiệp chúc mừng 20/10</title>
+
+  <title>Món quà 20/10 dành tặng chị em</title>
 
   <style>
     :root {
       --pink: #db6887;
-      --deep: #a93c60;
-      --ink: #594750;
+      --pink-dark: #a93c60;
+      --pink-light: #fff0f4;
+      --text: #594750;
     }
 
     * {
@@ -24,38 +26,53 @@
     body {
       margin: 0;
       min-height: 100vh;
+      padding: 35px 12px;
       display: grid;
       place-items: center;
-      padding: 35px 12px;
+      background: linear-gradient(
+        135deg,
+        #fff6f8 0%,
+        #ffe4ed 55%,
+        #fff2f6 100%
+      );
+      color: var(--text);
       font-family: Arial, "Segoe UI", sans-serif;
-      color: var(--ink);
-      background: linear-gradient(135deg, #fff6f8, #ffe4ed);
     }
+
+    /* HIỆU ỨNG CÁNH HOA */
 
     .petals {
       position: fixed;
       inset: 0;
       overflow: hidden;
       pointer-events: none;
+      z-index: 0;
     }
 
     .petal {
       position: absolute;
-      top: -25px;
+      top: -30px;
       width: 11px;
       height: 17px;
       border-radius: 80% 0 80% 0;
-      background: #ef9eb8;
+      background: #efa4ba;
       opacity: 0.55;
       animation: falling linear forwards;
     }
 
     @keyframes falling {
+      from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.55;
+      }
+
       to {
         transform: translateY(110vh) rotate(540deg);
         opacity: 0;
       }
     }
+
+    /* THIỆP CHÍNH */
 
     .card {
       position: relative;
@@ -75,23 +92,25 @@
 
     .page.active {
       display: block;
-      animation: appear 0.35s ease;
+      animation: appear 0.4s ease;
     }
 
     @keyframes appear {
       from {
         opacity: 0;
-        transform: translateY(9px);
+        transform: translateY(12px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
 
-    h1, h2 {
-      color: var(--deep);
-      line-height: 1.45;
+    h1,
+    h2 {
+      color: var(--pink-dark);
+      line-height: 1.5;
     }
 
     h1 {
@@ -104,29 +123,39 @@
 
     p {
       font-size: 16px;
-      line-height: 1.8;
+      line-height: 1.85;
     }
 
+    /* NÚT BẤM */
+
     .button {
+      display: inline-block;
       margin: 5px;
       padding: 13px 22px;
       border: 0;
       border-radius: 35px;
-      background: linear-gradient(90deg, #f07899, #d85b86);
+      background: linear-gradient(
+        90deg,
+        #f07899,
+        #d85b86
+      );
       color: white;
+      font-family: inherit;
       font-size: 15px;
       font-weight: 700;
       cursor: pointer;
-    }
-
-    .button.secondary {
-      background: #fff0f4;
-      color: var(--deep);
-      border: 1px solid #efb5c7;
+      transition: 0.2s;
     }
 
     .button:hover {
       filter: brightness(1.05);
+      transform: translateY(-2px);
+    }
+
+    .button.secondary {
+      background: #fff0f4;
+      color: var(--pink-dark);
+      border: 1px solid #efb5c7;
     }
 
     button:focus-visible,
@@ -135,18 +164,31 @@
       outline-offset: 3px;
     }
 
+    /* NHẬP TÊN */
+
     .name-input {
+      display: block;
       width: min(430px, 100%);
-      margin: 14px 0 17px;
+      margin: 20px auto;
       padding: 15px;
       border: 2px solid #f2bfd0;
       border-radius: 35px;
-      font: inherit;
+      background: white;
+      font-family: inherit;
+      font-size: 16px;
       text-align: center;
     }
 
+    .notice {
+      color: var(--pink-dark);
+      font-size: 14px;
+    }
+
+    /* TRANG CHỌN HOA */
+
     .choose-title {
-      font-size: clamp(14px, 2.6vw, 22px);
+      font-size: clamp(15px, 2.7vw, 23px);
+      letter-spacing: -0.3px;
     }
 
     .flowers {
@@ -160,6 +202,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: space-between;
       gap: 12px;
       min-width: 0;
       padding: 13px 8px;
@@ -178,40 +221,45 @@
     }
 
     .flower img {
+      display: block;
       width: 100%;
       height: 130px;
       object-fit: contain;
     }
 
     .flower-name {
-      color: var(--deep);
+      display: block;
+      color: var(--pink-dark);
       font-size: 12px;
       font-weight: 800;
-      line-height: 1.4;
+      line-height: 1.5;
       text-align: center;
     }
+
+    /* THIỆP LỜI CHÚC */
 
     .result {
       display: none;
       margin-top: 25px;
-      padding: clamp(18px, 4vw, 30px);
+      padding: clamp(19px, 4vw, 30px);
       border: 1px solid #f4c9d5;
       border-radius: 22px;
       background: #fff8fa;
+      scroll-margin-top: 25px;
     }
 
     .result-flower {
       display: block;
       width: 100%;
-      max-width: 145px;
-      height: 130px;
+      max-width: 155px;
+      height: 140px;
       margin: 0 auto 15px;
       object-fit: contain;
     }
 
     .recipient {
       margin: 10px 0 18px;
-      color: var(--deep);
+      color: var(--pink-dark);
       font-size: clamp(19px, 3.2vw, 25px);
       font-weight: 800;
       line-height: 1.5;
@@ -221,9 +269,9 @@
     .wish-title {
       margin: 15px 0 22px;
       color: #bb4b71;
-      font-weight: 800;
       font-size: clamp(17px, 2.8vw, 21px);
-      line-height: 1.55;
+      font-weight: 800;
+      line-height: 1.6;
     }
 
     .wish-text {
@@ -234,6 +282,8 @@
 
     .wish-text p {
       margin: 0 0 17px;
+      font-size: inherit;
+      line-height: inherit;
     }
 
     .signature {
@@ -244,11 +294,17 @@
       font-size: 14px;
       font-style: italic;
       line-height: 1.75;
+      text-align: center;
     }
 
     .controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       margin-top: 20px;
     }
+
+    /* NÚT NHẠC */
 
     .music-button {
       position: fixed;
@@ -259,33 +315,46 @@
       border: 1px solid #eeb6c7;
       border-radius: 30px;
       background: white;
-      color: var(--deep);
+      color: var(--pink-dark);
+      font-family: inherit;
+      font-size: 13px;
       font-weight: 700;
       cursor: pointer;
+      box-shadow: 0 4px 15px rgba(216, 91, 134, 0.08);
     }
 
     .music-note {
       position: fixed;
+      top: 60px;
       right: 14px;
-      top: 57px;
       z-index: 10;
       width: min(270px, calc(100vw - 28px));
       margin: 0;
-      padding: 8px 11px;
+      padding: 9px 12px;
       border-radius: 12px;
       background: white;
-      color: #a33457;
-      box-shadow: 0 4px 15px #d85b8620;
+      color: var(--pink-dark);
+      box-shadow: 0 4px 15px rgba(216, 91, 134, 0.12);
       font-size: 12px;
       line-height: 1.5;
     }
 
-    .notice {
-      color: var(--deep);
-      font-size: 14px;
+    .music-note[hidden] {
+      display: none;
     }
 
+    /* ĐIỆN THOẠI */
+
     @media (max-width: 600px) {
+
+      body {
+        padding: 70px 10px 25px;
+      }
+
+      .card {
+        padding: 25px 16px;
+      }
+
       .flowers {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -294,16 +363,16 @@
         height: 120px;
       }
 
-      .card {
-        padding: 25px 16px;
+      .choose-title {
+        font-size: clamp(14px, 3.4vw, 19px);
       }
 
       .wish-text {
         font-size: 15px;
       }
 
-      .choose-title {
-        font-size: clamp(14px, 3.4vw, 19px);
+      .button {
+        font-size: 14px;
       }
     }
 
@@ -313,10 +382,7 @@
       *::after {
         animation: none !important;
         transition: none !important;
-      }
-
-      html {
-        scroll-behavior: auto;
+        scroll-behavior: auto !important;
       }
     }
   </style>
@@ -324,9 +390,14 @@
 
 <body>
 
-  <div class="petals" id="petals" aria-hidden="true"></div>
+  <!-- HIỆU ỨNG CÁNH HOA -->
+  <div
+    class="petals"
+    id="petals"
+    aria-hidden="true">
+  </div>
 
-  <!-- NÚT BẬT TẮT NHẠC -->
+  <!-- NHẠC NỀN -->
   <button
     class="music-button"
     id="musicButton"
@@ -342,20 +413,19 @@
   </p>
 
   <!--
-    TẢI FILE MP3 LÊN GITHUB.
-    ĐỔI TÊN FILE THÀNH music.mp3.
-    ĐẶT CÙNG THƯ MỤC VỚI index.html.
+    FILE MP3 PHẢI NẰM CÙNG THƯ MỤC INDEX.HTML.
+    TÊN FILE: music.mp3
   -->
   <audio
     id="backgroundMusic"
     src="./music.mp3"
-    preload="none"
+    preload="auto"
     loop>
   </audio>
 
   <main class="card">
 
-    <!-- TRANG GIỚI THIỆU -->
+    <!-- TRANG 1: LỜI CHÀO -->
     <section class="page active" id="page1">
 
       <h1>
@@ -378,7 +448,7 @@
 
     </section>
 
-    <!-- TRANG NHẬP TÊN -->
+    <!-- TRANG 2: NHẬP TÊN -->
     <section class="page" id="page2">
 
       <h2>
@@ -408,11 +478,15 @@
         </button>
       </div>
 
-      <p class="notice" id="nameError" role="alert"></p>
+      <p
+        class="notice"
+        id="nameError"
+        role="alert">
+      </p>
 
     </section>
 
-    <!-- TRANG CHỌN HOA -->
+    <!-- TRANG 3: CHỌN HOA -->
     <section class="page" id="page3">
 
       <h2 class="choose-title">
@@ -424,9 +498,12 @@
         dễ thương đang chờ chị khám phá.
       </p>
 
-      <div class="flowers" id="flowerGrid"></div>
+      <div
+        class="flowers"
+        id="flowerGrid">
+      </div>
 
-      <!-- PHẦN HIỂN THỊ LỜI CHÚC -->
+      <!-- KẾT QUẢ LỜI CHÚC -->
       <article
         class="result"
         id="resultBox"
@@ -437,26 +514,29 @@
           id="resultImage"
           alt="Bông hoa đã chọn">
 
-        <!-- TÊN NGƯỜI NHẬN Ở TRÊN -->
-        <div class="recipient" id="recipientName"></div>
+        <div
+          class="recipient"
+          id="recipientName">
+        </div>
 
-        <!-- TIÊU ĐỀ Ở DƯỚI TÊN -->
-        <div class="wish-title" id="wishTitle"></div>
+        <div
+          class="wish-title"
+          id="wishTitle">
+        </div>
 
-        <!-- CẢM ƠN TRƯỚC, LỜI CHÚC SAU -->
         <div class="wish-text">
           <p id="wishThanks"></p>
           <p id="wishBody"></p>
         </div>
 
         <div class="signature">
-          Thân gửi những bông hồng xinh đẹp của<br>
+          Thân gửi những bông hồng xinh đẹp của
+          <br>
           <strong>
             Phúc Thiện – Phúc Thịnh – 3D Tech Vision
           </strong>
         </div>
 
-        <!-- KHÔNG HIỂN THỊ SỐ THỨ TỰ LỜI CHÚC -->
         <div class="controls">
 
           <button
@@ -498,9 +578,9 @@
   <script>
     "use strict";
 
-    // ==========================================
+    // ======================================
     // 1. HÌNH ẢNH 4 LOÀI HOA
-    // ==========================================
+    // ======================================
 
     const flowers = [
       {
@@ -525,19 +605,18 @@
       }
     ];
 
-    // ==========================================
+    // ======================================
     // 2. BỘ 40 LỜI CHÚC
-    // MỖI HOA CÓ 10 LỜI CHÚC
     //
-    // CẤU TRÚC:
+    // CẤU TRÚC MỖI LỜI CHÚC:
     // [TIÊU ĐỀ, LỜI CẢM ƠN, LỜI CHÚC]
-    // ==========================================
+    // ======================================
 
     const wishes = {
 
-      // ========================================
-      // HOA HƯỚNG DƯƠNG
-      // ========================================
+      // ====================================
+      // HOA HƯỚNG DƯƠNG - 10 LỜI CHÚC
+      // ====================================
 
       sunflower: [
 
@@ -603,9 +682,9 @@
 
       ],
 
-      // ========================================
-      // HOA TULIP
-      // ========================================
+      // ====================================
+      // HOA TULIP - 10 LỜI CHÚC
+      // ====================================
 
       tulip: [
 
@@ -671,9 +750,9 @@
 
       ],
 
-      // ========================================
-      // HOA CẨM TÚ CẦU
-      // ========================================
+      // ====================================
+      // HOA CẨM TÚ CẦU - 10 LỜI CHÚC
+      // ====================================
 
       hydrangea: [
 
@@ -739,9 +818,9 @@
 
       ],
 
-      // ========================================
-      // HOA CÚC TRẮNG
-      // ========================================
+      // ====================================
+      // HOA CÚC TRẮNG - 10 LỜI CHÚC
+      // ====================================
 
       daisy: [
 
@@ -806,12 +885,11 @@
         ]
 
       ]
-
     };
 
-    // ==========================================
-    // 3. ĐIỀU KHIỂN GIAO DIỆN
-    // ==========================================
+    // ======================================
+    // 3. CÁC BIẾN ĐIỀU KHIỂN
+    // ======================================
 
     const $ = (id) => document.getElementById(id);
 
@@ -821,9 +899,13 @@
 
     const flowerStates = {};
 
+    // ======================================
+    // 4. CHUYỂN TRANG
+    // ======================================
+
     function showPage(number) {
-      document.querySelectorAll(".page").forEach((el) => {
-        el.classList.remove("active");
+      document.querySelectorAll(".page").forEach((page) => {
+        page.classList.remove("active");
       });
 
       $("page" + number).classList.add("active");
@@ -834,9 +916,107 @@
       });
     }
 
-    $("startButton").addEventListener("click", () => {
-      showPage(2);
+    // ======================================
+    // 5. ÂM THANH
+    //
+    // Nhạc tự phát khi người nhận bấm
+    // "Bắt đầu khám phá".
+    //
+    // Nếu trình duyệt từ chối phát,
+    // người dùng có thể bấm "Bật nhạc".
+    // ======================================
+
+    const music = $("backgroundMusic");
+    const musicButton = $("musicButton");
+    const musicNote = $("musicNote");
+
+    music.volume = 0.35;
+    music.loop = true;
+
+    function showMusicNote(message) {
+      musicNote.textContent = message;
+      musicNote.hidden = false;
+    }
+
+    function hideMusicNote() {
+      musicNote.hidden = true;
+      musicNote.textContent = "";
+    }
+
+    function startMusic() {
+      hideMusicNote();
+
+      if (!music.paused) {
+        musicButton.textContent = "Tắt nhạc";
+        return;
+      }
+
+      // play() được gọi ngay trong thao tác bấm,
+      // giúp trình duyệt nhận diện tương tác.
+      const playPromise = music.play();
+
+      musicButton.textContent = "Đang bật nhạc...";
+
+      if (
+        playPromise &&
+        typeof playPromise.then === "function"
+      ) {
+        playPromise
+          .then(() => {
+            musicButton.textContent = "Tắt nhạc";
+            hideMusicNote();
+          })
+          .catch((error) => {
+            console.error("Lỗi phát nhạc:", error);
+            console.error("Đường dẫn:", music.currentSrc);
+
+            musicButton.textContent = "Bật nhạc";
+
+            if (error.name === "NotAllowedError") {
+              showMusicNote(
+                "Trình duyệt chưa cho phép phát nhạc. Chị bấm Bật nhạc để thử lại nhé."
+              );
+            } else {
+              showMusicNote(
+                "Chưa phát được nhạc. Vui lòng kiểm tra file music.mp3 trên website."
+              );
+            }
+          });
+      }
+    }
+
+    musicButton.addEventListener("click", () => {
+      if (!music.paused) {
+        music.pause();
+        musicButton.textContent = "Bật nhạc";
+        hideMusicNote();
+      } else {
+        startMusic();
+      }
     });
+
+    music.addEventListener("ended", () => {
+      musicButton.textContent = "Bật nhạc";
+    });
+
+    // ======================================
+    // 6. BẮT ĐẦU KHÁM PHÁ
+    // TỰ ĐỘNG BẬT NHẠC TẠI ĐÂY
+    // ======================================
+
+    $("startButton").addEventListener("click", () => {
+
+      // Tự động bật nhạc khi bấm nút bắt đầu.
+      startMusic();
+
+      // Chuyển đến màn hình nhập tên.
+      showPage(2);
+
+    });
+
+    // ======================================
+    // 7. NHẬP TÊN
+    // ======================================
 
     $("continueButton").addEventListener("click", submitName);
 
@@ -845,15 +1025,6 @@
         submitName();
       }
     });
-
-    $("changeNameButton").addEventListener("click", () => {
-      showPage(2);
-      $("userName").focus();
-    });
-
-    // ==========================================
-    // 4. NHẬP TÊN NGƯỜI NHẬN
-    // ==========================================
 
     function submitName() {
       const name = $("userName").value
@@ -884,18 +1055,21 @@
       showPage(3);
     }
 
-    // ==========================================
-    // 5. CƠ CHẾ PHÂN BỔ LỜI CHÚC
+    $("changeNameButton").addEventListener("click", () => {
+      showPage(2);
+      $("userName").focus();
+    });
+
+    // ======================================
+    // 8. CÁ NHÂN HÓA LỜI CHÚC THEO TÊN
     //
-    // - Mỗi hoa có 10 lời chúc.
-    // - Lời đầu dựa trên tên và loại hoa.
-    // - Khám phá tiếp không lặp trong một vòng.
-    // - Không hiện số thứ tự trên giao diện.
+    // Mỗi hoa có 10 lời.
+    // Lời đầu phụ thuộc vào tên và loại hoa.
+    // Các lời tiếp theo không lặp trước
+    // khi đã xem hết 10 lời của hoa đó.
     //
-    // Tên khác nhau có thể trùng lời chúc.
-    // Đây là giới hạn của cách triển khai
-    // HTML tĩnh không có cơ sở dữ liệu chung.
-    // ==========================================
+    // Không hiện số thứ tự lời chúc.
+    // ======================================
 
     function hashName(text) {
       let hash = 2166136261;
@@ -913,32 +1087,32 @@
     }
 
     function shuffle(items) {
-      const result = [...items];
+      const array = [...items];
 
-      for (let i = result.length - 1; i > 0; i--) {
+      for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
 
-        [result[i], result[j]] =
-          [result[j], result[i]];
+        [array[i], array[j]] =
+          [array[j], array[i]];
       }
 
-      return result;
+      return array;
     }
 
     function newQueue(flowerId, previousIndex = -1, first = false) {
-      const length = wishes[flowerId].length;
+      const total = wishes[flowerId].length;
 
       const indexes = Array.from(
-        { length },
+        { length: total },
         (_, i) => i
       );
 
       if (first) {
         const firstIndex =
-          hashName(recipient + "|" + flowerId) % length;
+          hashName(recipient + "|" + flowerId) % total;
 
         const remaining = indexes.filter(
-          (i) => i !== firstIndex
+          (index) => index !== firstIndex
         );
 
         return [
@@ -949,28 +1123,29 @@
 
       const result = shuffle(indexes);
 
-      // Tránh hiển thị cùng một lời chúc
-      // hai lần liên tiếp khi bắt đầu vòng mới.
+      // Tránh lặp ngay hai lần liên tiếp
+      // tại ranh giới giữa hai vòng 10 lời.
       if (
         result.length > 1 &&
         result[0] === previousIndex
       ) {
-        const other = result.findIndex(
-          (i) => i !== previousIndex
+        const anotherIndex = result.findIndex(
+          (index) => index !== previousIndex
         );
 
-        [result[0], result[other]] =
-          [result[other], result[0]];
+        [result[0], result[anotherIndex]] =
+          [result[anotherIndex], result[0]];
       }
 
       return result;
     }
 
-    // ==========================================
-    // 6. TẠO 4 BÔNG HOA
-    // ==========================================
+    // ======================================
+    // 9. TẠO GIAO DIỆN BỐN LOÀI HOA
+    // ======================================
 
     flowers.forEach((flower) => {
+
       const button = document.createElement("button");
 
       button.type = "button";
@@ -985,18 +1160,20 @@
       caption.className = "flower-name";
       caption.textContent = flower.name;
 
-      button.append(image, caption);
+      button.appendChild(image);
+      button.appendChild(caption);
 
       button.addEventListener("click", () => {
         selectFlower(flower.id);
       });
 
       $("flowerGrid").appendChild(button);
+
     });
 
-    // ==========================================
-    // 7. CHỌN HOA
-    // ==========================================
+    // ======================================
+    // 10. CHỌN HOA
+    // ======================================
 
     function selectFlower(id) {
       selectedFlower = id;
@@ -1008,27 +1185,27 @@
         };
       }
 
-      document.querySelectorAll(".flower").forEach((el) => {
-        el.classList.toggle(
+      document.querySelectorAll(".flower").forEach((button) => {
+        button.classList.toggle(
           "selected",
-          el.dataset.flower === id
+          button.dataset.flower === id
         );
       });
 
       showWish();
     }
 
-    // ==========================================
-    // 8. HIỂN THỊ THÔNG ĐIỆP
+    // ======================================
+    // 11. HIỂN THỊ LỜI CHÚC
     //
-    // BỐ CỤC:
     // GỬI ĐẾN CHỊ ĐẸP [TÊN]
     // TIÊU ĐỀ
-    // CÂU CẢM ƠN
+    // LỜI CẢM ƠN
     // LỜI CHÚC
+    // CHỮ KÝ
     //
     // KHÔNG CÓ SỐ 1/10, 2/10...
-    // ==========================================
+    // ======================================
 
     function showWish() {
       if (!selectedFlower) {
@@ -1074,23 +1251,24 @@
       });
     }
 
-    // ==========================================
-    // 9. KHÁM PHÁ THÊM LỜI CHÚC
-    // ==========================================
+    // ======================================
+    // 12. KHÁM PHÁ THÊM LỜI CHÚC
+    // ======================================
 
     $("nextWishButton").addEventListener("click", () => {
       showWish();
     });
 
-    // ==========================================
-    // 10. CHỌN HOA KHÁC
-    // ==========================================
+    // ======================================
+    // 13. CHỌN BÔNG HOA KHÁC
+    // ======================================
 
     $("chooseAgainButton").addEventListener("click", () => {
+
       $("resultBox").style.display = "none";
 
-      document.querySelectorAll(".flower").forEach((el) => {
-        el.classList.remove("selected");
+      document.querySelectorAll(".flower").forEach((button) => {
+        button.classList.remove("selected");
       });
 
       selectedFlower = null;
@@ -1099,11 +1277,12 @@
         behavior: "smooth",
         block: "center"
       });
+
     });
 
-    // ==========================================
-    // 11. SAO CHÉP LỜI CHÚC
-    // ==========================================
+    // ======================================
+    // 14. SAO CHÉP LỜI CHÚC
+    // ======================================
 
     $("copyButton").addEventListener("click", async () => {
       if (!currentWish) {
@@ -1129,7 +1308,7 @@
 
         setTimeout(() => {
           $("copyButton").textContent = "Sao chép lời chúc";
-        }, 1700);
+        }, 1800);
 
       } catch (error) {
         window.prompt(
@@ -1139,126 +1318,38 @@
       }
     });
 
-    // ==========================================
-    // 12. NHẠC NỀN
-    //
-    // File nhạc phải tên music.mp3
-    // và nằm cùng thư mục index.html.
-    //
-    // Có nút bật, tắt và báo lỗi.
-    // ==========================================
-
-    const music = $("backgroundMusic");
-    const musicButton = $("musicButton");
-    const musicNote = $("musicNote");
-
-    music.volume = 0.35;
-    music.loop = true;
-
-    let musicWasRequested = false;
-
-    function showMusicError(message) {
-      musicNote.textContent = message;
-      musicNote.hidden = false;
-      musicButton.textContent = "Bật nhạc";
-    }
-
-    musicButton.addEventListener("click", async () => {
-      // Nếu nhạc đang phát thì tạm dừng.
-      if (!music.paused) {
-        music.pause();
-
-        musicButton.textContent = "Bật nhạc";
-        musicNote.hidden = true;
-
-        return;
-      }
-
-      musicNote.hidden = true;
-      musicWasRequested = true;
-
-      musicButton.textContent = "Đang bật nhạc...";
-      musicButton.disabled = true;
-
-      try {
-        await music.play();
-
-        musicButton.textContent = "Tắt nhạc";
-
-      } catch (error) {
-        console.error(
-          "Lỗi phát nhạc:",
-          error,
-          music.currentSrc
-        );
-
-        let message =
-          "Chưa phát được nhạc. Hãy kiểm tra file music.mp3 đã được tải lên GitHub cùng thư mục với index.html và Vercel đã cập nhật.";
-
-        if (error.name === "NotAllowedError") {
-          message =
-            "Trình duyệt chưa cho phép phát nhạc. Chị thử bấm Bật nhạc lại nhé.";
-        }
-
-        if (error.name === "NotSupportedError") {
-          message =
-            "Trình duyệt không đọc được file nhạc. Vui lòng kiểm tra định dạng MP3.";
-        }
-
-        showMusicError(message);
-
-      } finally {
-        musicButton.disabled = false;
-      }
-    });
-
-    music.addEventListener("error", () => {
-      if (!musicWasRequested) {
-        return;
-      }
-
-      console.error(
-        "Không tải được file MP3:",
-        music.currentSrc,
-        music.error
-      );
-
-      showMusicError(
-        "Không tìm thấy hoặc không đọc được file music.mp3 trên website."
-      );
-    });
-
-    // ==========================================
-    // 13. HIỆU ỨNG CÁNH HOA RƠI
-    // ==========================================
+    // ======================================
+    // 15. HIỆU ỨNG CÁNH HOA RƠI
+    // ======================================
 
     const reducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
 
+    function createPetal() {
+      if (document.hidden) {
+        return;
+      }
+
+      const petal = document.createElement("span");
+
+      petal.className = "petal";
+
+      petal.style.left =
+        Math.random() * 100 + "vw";
+
+      petal.style.animationDuration =
+        5 + Math.random() * 4 + "s";
+
+      $("petals").appendChild(petal);
+
+      setTimeout(() => {
+        petal.remove();
+      }, 9500);
+    }
+
     if (!reducedMotion) {
-      setInterval(() => {
-        if (document.hidden) {
-          return;
-        }
-
-        const petal = document.createElement("span");
-
-        petal.className = "petal";
-
-        petal.style.left =
-          Math.random() * 100 + "vw";
-
-        petal.style.animationDuration =
-          5 + Math.random() * 4 + "s";
-
-        $("petals").appendChild(petal);
-
-        setTimeout(() => {
-          petal.remove();
-        }, 9500);
-
-      }, 450);
+      setInterval(createPetal, 450);
     }
 
   </script>
