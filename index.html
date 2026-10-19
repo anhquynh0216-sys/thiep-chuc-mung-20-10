@@ -3,15 +3,16 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#fff3f5">
-<title>Gửi tặng những bông hồng xinh đẹp - 20/10</title>
+<title>Thiệp chúc mừng 20/10 - Phúc Thiện - Phúc Thịnh - 3DTV</title>
 
 <style>
 :root {
   --pink: #ff758c;
-  --pink2: #ff7eb3;
-  --dark: #d85a70;
+  --pink-light: #ff7eb3;
+  --pink-dark: #d85a70;
+  --text: #4d4d4d;
 }
 
 * {
@@ -26,42 +27,50 @@ body {
   margin: 0;
   min-height: 100vh;
   min-height: 100dvh;
-  padding: 20px 12px;
+  padding: 22px 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg,#fff3f5,#ffe3e8);
   font-family: "Segoe UI", Arial, sans-serif;
-  color: #555;
+  color: var(--text);
   overflow-x: hidden;
 }
 
-/* HIỆU ỨNG CÁNH HOA RƠI */
+/* HOA ROI NHE NANG */
 #flowerRain {
   position: fixed;
   inset: 0;
+  z-index: 0;
   pointer-events: none;
   overflow: hidden;
-  z-index: 0;
 }
 
 .petal {
   position: absolute;
   top: -30px;
-  background: #ffb5c8;
-  width: 13px;
+  width: 12px;
   height: 20px;
+  background: #ffc2d2;
   border-radius: 80% 0 75% 25%;
   opacity: 0;
-  animation: petalFall linear forwards;
+  animation: fall linear forwards;
 }
 
-@keyframes petalFall {
+.petal:nth-child(3n) {
+  background: #ffe0e8;
+}
+
+.petal:nth-child(4n) {
+  background: rgba(255,255,255,.9);
+}
+
+@keyframes fall {
   0% {
-    transform: translateY(-30px) rotate(0);
+    transform: translateY(-30px) rotate(0deg);
     opacity: 0;
   }
-  10% { opacity: .8; }
+  10% { opacity: .85; }
   90% { opacity: .8; }
   100% {
     transform: translateY(110vh) rotate(540deg);
@@ -69,28 +78,28 @@ body {
   }
 }
 
-/* KHUNG THIỆP */
+/* KHUNG CHINH */
 .card {
   position: relative;
   z-index: 10;
-  background: rgba(255,255,255,.97);
-  backdrop-filter: blur(12px);
-  border: 2px solid #fff;
-  border-radius: 30px;
-  padding: 48px 36px;
   width: 100%;
-  max-width: 690px;
+  max-width: 850px;
+  padding: 48px 38px;
+  border-radius: 28px;
+  border: 2px solid white;
+  background: rgba(255,255,255,.97);
+  box-shadow: 0 15px 40px rgba(255,117,140,.22);
   text-align: center;
-  box-shadow: 0 15px 40px rgba(255,117,140,.24);
 }
 
+/* CHUYEN TRANG */
 .page {
   display: none;
 }
 
 .page.active {
   display: block;
-  animation: fadeUp .5s ease;
+  animation: fadeUp .5s ease both;
 }
 
 @keyframes fadeUp {
@@ -104,53 +113,72 @@ body {
   }
 }
 
+/* TIEU DE CHUNG */
 h1, h2 {
-  color: var(--dark);
-  font-size: 25px;
+  margin: 0 auto 22px;
+  color: var(--pink-dark);
+  font-size: clamp(19px,2.8vw,26px);
   font-weight: 800;
-  line-height: 1.55;
-  margin: 0 0 22px;
+  line-height: 1.5;
   text-transform: uppercase;
+  text-wrap: balance;
 }
 
 p {
+  margin: 0 auto 28px;
+  max-width: 690px;
+  color: #606060;
   font-size: 17px;
-  line-height: 1.8;
-  margin: 0 0 28px;
+  line-height: 1.85;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
+/* TIEU DE CHON HOA: MOT DONG */
+#page3 > h2 {
+  font-size: clamp(9px,2.8vw,20px);
+  letter-spacing: -.35px;
+  white-space: nowrap;
+  text-wrap: nowrap;
+  font-weight: 800;
+  line-height: 1.6;
+  max-width: 100%;
+}
+
+/* DUONG TRANG TRI */
 .line {
   width: 85px;
   height: 3px;
-  margin: 0 auto 25px;
+  margin: 0 auto 27px;
   border-radius: 20px;
-  background: linear-gradient(90deg,#ff758c,#ffd0df);
+  background: linear-gradient(90deg,#ff758c,#ffd6e1);
 }
 
-/* NÚT BẤM */
+/* NUT BAM */
 .btn {
   appearance: none;
   border: none;
   border-radius: 50px;
-  background: linear-gradient(90deg,var(--pink),var(--pink2));
-  padding: 15px 34px;
-  color: white;
-  font-weight: 700;
+  padding: 15px 35px;
+  background: linear-gradient(90deg,var(--pink),var(--pink-light));
+  color: #fff;
   font-size: 17px;
+  font-weight: 700;
+  line-height: 1.4;
   cursor: pointer;
-  box-shadow: 0 5px 18px rgba(255,117,140,.35);
-  transition: transform .2s, box-shadow .2s;
+  box-shadow: 0 5px 18px rgba(255,117,140,.32);
+  transition: transform .2s,box-shadow .2s;
   touch-action: manipulation;
 }
 
 .btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 22px rgba(255,117,140,.45);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255,117,140,.4);
 }
 
 .btn-outline {
   background: white;
-  color: var(--dark);
+  color: var(--pink-dark);
   border: 2px solid #ffb9ca;
   box-shadow: none;
 }
@@ -169,39 +197,41 @@ input:focus-visible {
   margin-top: 24px;
 }
 
-/* Ô NHẬP TÊN */
+/* O NHAP TEN */
 #userName {
+  display: block;
   width: 100%;
-  max-width: 440px;
-  padding: 16px 22px;
-  border: 2px solid #ffd0d6;
+  max-width: 470px;
+  margin: 0 auto 12px;
+  padding: 17px 24px;
   border-radius: 50px;
+  border: 2px solid #ffd0d6;
   background: white;
   font-size: 17px;
   color: #444;
   text-align: center;
   outline: none;
-  margin-bottom: 12px;
 }
 
 #userName:focus {
   border-color: var(--pink);
+  box-shadow: 0 0 12px rgba(255,117,140,.15);
 }
 
 #errorName {
   color: #c53350;
   font-size: 14px;
-  min-height: 23px;
+  min-height: 22px;
   margin-bottom: 12px;
 }
 
-/* BỐN BÔNG HOA */
+/* KHU VUC CHON HOA */
 .flower-grid {
   display: grid;
-  grid-template-columns: repeat(2,minmax(0,1fr));
-  gap: 20px;
-  max-width: 550px;
-  margin: 28px auto;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 14px;
+  width: 100%;
+  margin: 30px auto 10px;
 }
 
 .flower-choice {
@@ -210,12 +240,13 @@ input:focus-visible {
   flex-direction: column;
   align-items: center;
   width: 100%;
+  min-width: 0;
+  padding: 10px;
+  border-radius: 18px;
   border: 2px solid #ffe1e8;
   background: #fff9fa;
-  padding: 12px;
-  border-radius: 20px;
   cursor: pointer;
-  transition: transform .25s, border-color .25s;
+  transition: transform .25s,border-color .25s;
 }
 
 .flower-choice:hover {
@@ -228,105 +259,159 @@ input:focus-visible {
   background: #fff0f4;
 }
 
+/* ANH GOC KHONG BI CAT */
 .flower-choice img {
   display: block;
   width: 100%;
-  height: 185px;
+  height: 190px;
   object-fit: contain;
-  border-radius: 12px;
+  object-position: center;
   background: #fff;
+  border-radius: 12px;
 }
 
 .flower-name {
-  color: #d95d77;
-  font-size: 15px;
-  font-weight: 700;
-  margin-top: 12px;
-  line-height: 1.5;
-}
-
-/* THIỆP LỜI CHÚC */
-#resultBox {
-  display: none;
-  margin-top: 28px;
-  padding: 28px 22px;
-  border-radius: 22px;
-  border: 1px solid #ffd0dc;
-  background: linear-gradient(135deg,#fff8fa,#ffeaef);
-  animation: fadeUp .5s ease;
-}
-
-#resultImage {
   display: block;
-  width: min(100%,225px);
-  height: 270px;
-  object-fit: contain;
-  margin: 0 auto 18px;
-  background: white;
-  border: 4px solid white;
-  border-radius: 18px;
-  box-shadow: 0 7px 20px rgba(255,117,140,.15);
-}
-
-.result-title {
-  color: #ca4863;
-  font-size: 21px;
-  line-height: 1.6;
-  font-weight: 800;
-  margin-bottom: 17px;
-}
-
-.wish-heading {
-  color: #d5667f;
-  font-size: 18px;
-  line-height: 1.6;
-  font-weight: 700;
-  margin-bottom: 16px;
-}
-
-.wish-content {
-  color: #444;
-  font-size: 16px;
-  line-height: 1.9;
-  white-space: pre-line;
-}
-
-.signature {
-  color: #c85e75;
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 1.8;
-  margin-top: 26px;
-}
-
-#copyNotice {
-  color: #ad4f68;
+  margin-top: 12px;
+  color: #d95d77;
   font-size: 14px;
-  min-height: 18px;
-  margin-top: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: center;
 }
 
 .image-error {
   display: none;
   color: #ad4f68;
   font-size: 12px;
-  line-height: 1.5;
-  margin-top: 6px;
+  margin-top: 5px;
 }
 
-/* ĐIỆN THOẠI */
-@media(max-width:600px) {
+/* PHAN THIEP VA LOI CHUC */
+#resultBox {
+  display: none;
+  margin: 32px auto 0;
+  padding: 32px 28px;
+  max-width: 735px;
+  border-radius: 24px;
+  border: 1px solid #ffd0dc;
+  background: linear-gradient(135deg,#fff8fa,#ffedf1);
+  animation: fadeUp .5s ease;
+}
+
+#resultImage {
+  display: block;
+  width: min(100%,230px);
+  height: 290px;
+  margin: 0 auto 24px;
+  border-radius: 18px;
+  border: 4px solid white;
+  background: white;
+  object-fit: contain;
+  box-shadow: 0 7px 20px rgba(255,117,140,.15);
+}
+
+/* TIEU DE TEN NGUOI NHAN */
+.result-title {
+  margin: 0 auto 15px;
+  color: #ca4863;
+  font-size: clamp(17px,2.5vw,23px);
+  font-weight: 800;
+  line-height: 1.5;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+/* TIEU DE LOI CHUC */
+.wish-heading {
+  margin: 0 auto 22px;
+  color: #d5667f;
+  font-size: clamp(13px,2.25vw,19px);
+  font-weight: 800;
+  line-height: 1.6;
+  letter-spacing: -.25px;
+  text-wrap: balance;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+/* NOI DUNG LOI CHUC */
+.wish-content {
+  max-width: 620px;
+  margin: 0 auto;
+  color: #444;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 2;
+  text-align: center;
+  white-space: pre-line;
+  overflow-wrap: break-word;
+  word-break: normal;
+  text-wrap: pretty;
+}
+
+.signature {
+  max-width: 580px;
+  margin: 30px auto 0;
+  color: #c85e75;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.8;
+  text-align: center;
+  text-wrap: balance;
+}
+
+#copyNotice {
+  color: #ad4f68;
+  font-size: 13px;
+  min-height: 18px;
+  margin-top: 15px;
+}
+
+/* TABLET */
+@media(max-width:800px) {
   .card {
-    padding: 32px 17px;
+    max-width: 680px;
+    padding: 38px 24px;
+  }
+
+  .flower-grid {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 16px;
+    max-width: 510px;
+  }
+
+  .flower-choice img {
+    height: 215px;
+  }
+}
+
+/* DIEN THOAI */
+@media(max-width:600px) {
+  body {
+    padding: 14px 10px;
+  }
+
+  .card {
+    padding: 32px 15px;
     border-radius: 22px;
   }
 
   h1,h2 {
-    font-size: 20px;
+    font-size: 19px;
+    line-height: 1.5;
+  }
+
+  #page3 > h2 {
+    font-size: clamp(8px,2.5vw,14px);
+    letter-spacing: -.45px;
+    white-space: nowrap;
   }
 
   p {
     font-size: 15px;
+    line-height: 1.75;
+    margin-bottom: 24px;
   }
 
   .btn {
@@ -334,8 +419,15 @@ input:focus-visible {
     padding: 13px 23px;
   }
 
+  #userName {
+    font-size: 15px;
+    padding: 15px;
+  }
+
   .flower-grid {
+    grid-template-columns: repeat(2,minmax(0,1fr));
     gap: 12px;
+    margin-top: 24px;
   }
 
   .flower-choice {
@@ -344,32 +436,61 @@ input:focus-visible {
   }
 
   .flower-choice img {
-    height: 155px;
+    height: 165px;
   }
 
   .flower-name {
     font-size: 13px;
+    margin-top: 9px;
   }
 
   #resultBox {
-    padding: 22px 14px;
+    padding: 24px 14px;
+  }
+
+  #resultImage {
+    width: min(100%,200px);
+    height: 250px;
   }
 
   .result-title {
-    font-size: 19px;
+    font-size: 18px;
+  }
+
+  .wish-heading {
+    font-size: clamp(12px,3.3vw,16px);
+    line-height: 1.65;
+    margin-bottom: 17px;
   }
 
   .wish-content {
     font-size: 15px;
+    line-height: 1.9;
+  }
+
+  .signature {
+    font-size: 13px;
+    line-height: 1.8;
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
+@media(max-width:360px) {
+  .flower-choice img {
+    height: 135px;
+  }
+
+  #page3 > h2 {
+    font-size: 8px;
+    letter-spacing: -.6px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
   .petal {
     display: none;
   }
 
-  *, *::before, *::after {
+  *,*::before,*::after {
     animation-duration: .01ms !important;
     transition-duration: .01ms !important;
   }
@@ -383,213 +504,216 @@ input:focus-visible {
 
 <main class="card">
 
-  <!-- TRANG 1: CHÀO MỪNG -->
-  <section id="page1" class="page active">
+<!-- TRANG 1 -->
+<section class="page active" id="page1">
 
-    <h1>
-      GỬI TẶNG NHỮNG BÔNG HỒNG XINH ĐẸP
-      CỦA PHÚC THIỆN – PHÚC THỊNH – 3DTV
-    </h1>
+  <h1>
+    GỬI TẶNG NHỮNG BÔNG HỒNG XINH ĐẸP
+    CỦA PHÚC THIỆN – PHÚC THỊNH – 3DTV
+  </h1>
 
-    <div class="line"></div>
+  <div class="line"></div>
 
-    <p>
-      Một không gian nhỏ tràn ngập những thông điệp
-      tươi vui và nguồn năng lượng tích cực
-      được chuẩn bị riêng dành cho các chị em.
-    </p>
+  <p>
+    Một không gian nhỏ tràn ngập những thông điệp
+    tươi vui và nguồn năng lượng tích cực
+    được chuẩn bị riêng dành cho các chị em.
+  </p>
 
-    <button
-      type="button"
-      class="btn"
-      id="startButton">
-      Bắt đầu khám phá
+  <button type="button"
+    class="btn" id="startButton">
+    Bắt đầu khám phá
+  </button>
+
+</section>
+
+<!-- TRANG 2 -->
+<section class="page" id="page2">
+
+  <h2>
+    XIN CHÀO NGƯỜI ĐẸP,
+    CHO TỤI EM BIẾT TÊN CỦA NGƯỜI ĐẸP LÀ GÌ?
+  </h2>
+
+  <div class="line"></div>
+
+  <p>
+    Hãy cho tụi em biết tên để cùng khám phá
+    những điều thú vị đang chờ phía sau nhé!
+  </p>
+
+  <form id="nameForm">
+
+    <input
+      id="userName"
+      type="text"
+      placeholder="Nhập tên đáng yêu của chị vào đây..."
+      maxlength="60"
+      autocomplete="given-name"
+      aria-label="Tên người nhận thiệp"
+    >
+
+    <div id="errorName" role="alert"></div>
+
+    <button type="submit" class="btn">
+      Tiếp tục
     </button>
 
-  </section>
+  </form>
 
-  <!-- TRANG 2: NHẬP TÊN -->
-  <section id="page2" class="page">
+</section>
 
-    <h2>
-      XIN CHÀO NGƯỜI ĐẸP,
-      CHO TỤI EM BIẾT TÊN CỦA NGƯỜI ĐẸP LÀ GÌ?
-    </h2>
+<!-- TRANG 3 -->
+<section class="page" id="page3">
 
-    <div class="line"></div>
+  <h2>
+    XIN MỜI NGƯỜI ĐẸP CỦA EM CHỌN MỘT BÔNG HOA
+  </h2>
 
-    <p>
-      Hãy cho tụi em biết tên để cùng khám phá
-      những điều thú vị đang chờ phía sau nhé!
-    </p>
+  <div class="line"></div>
 
-    <form id="nameForm">
+  <p>
+    Mỗi bông hoa đang ẩn chứa một thông điệp nhỏ
+    dành riêng cho người đẹp.
+    Hãy chọn bông hoa mà chị yêu thích nhất nhé!
+  </p>
 
-      <input
-        id="userName"
-        type="text"
-        placeholder="Nhập tên đáng yêu của chị vào đây..."
-        maxlength="60"
-        autocomplete="given-name"
-        aria-label="Tên người nhận thiệp">
+  <div class="flower-grid" id="flowerGrid">
 
-      <div id="errorName" role="alert"></div>
+    <button type="button"
+      class="flower-choice"
+      data-flower="1">
 
-      <button type="submit" class="btn">
-        Tiếp tục
-      </button>
+      <img
+        src="./hoa-huong-duong.jpg"
+        alt="Hoa Hướng Dương mặt cười"
+      >
 
-    </form>
+      <span class="flower-name">
+        Hoa Hướng Dương
+      </span>
 
-  </section>
+      <span class="image-error">
+        Không tìm thấy ảnh
+      </span>
+    </button>
 
-  <!-- TRANG 3: CHỌN HOA -->
-  <section id="page3" class="page">
+    <button type="button"
+      class="flower-choice"
+      data-flower="2">
 
-    <h2>
-      XIN MỜI NGƯỜI ĐẸP CỦA EM
-      CHỌN MỘT BÔNG HOA
-    </h2>
+      <img
+        src="./hoa-tulip.png"
+        alt="Hoa Tulip mặt cười"
+      >
 
-    <div class="line"></div>
+      <span class="flower-name">
+        Hoa Tulip
+      </span>
 
-    <p>
-      Mỗi bông hoa đang ẩn chứa một thông điệp nhỏ
-      dành riêng cho người đẹp.
-      Hãy chọn bông hoa mà chị yêu thích nhất nhé!
-    </p>
+      <span class="image-error">
+        Không tìm thấy ảnh
+      </span>
+    </button>
 
-    <div class="flower-grid" id="flowerGrid">
+    <button type="button"
+      class="flower-choice"
+      data-flower="3">
+
+      <img
+        src="./hoa-cam-tu-cau.jpg"
+        alt="Hoa Cẩm Tú Cầu mặt cười"
+      >
+
+      <span class="flower-name">
+        Hoa Cẩm Tú Cầu
+      </span>
+
+      <span class="image-error">
+        Không tìm thấy ảnh
+      </span>
+    </button>
+
+    <button type="button"
+      class="flower-choice"
+      data-flower="4">
+
+      <img
+        src="./hoa-cuc.jpg"
+        alt="Hoa Cúc Trắng mặt cười"
+      >
+
+      <span class="flower-name">
+        Hoa Cúc Trắng
+      </span>
+
+      <span class="image-error">
+        Không tìm thấy ảnh
+      </span>
+    </button>
+
+  </div>
+
+  <!-- THIEP LOI CHUC -->
+  <section id="resultBox"
+    aria-live="polite"
+    aria-label="Lời chúc dành cho người nhận">
+
+    <img
+      id="resultImage"
+      alt="Bông hoa đã chọn"
+    >
+
+    <div class="result-title"
+      id="resultTitle"></div>
+
+    <div class="wish-heading"
+      id="wishHeading"></div>
+
+    <div class="wish-content"
+      id="wishContent"></div>
+
+    <div class="signature">
+      Thân gửi những bông hồng xinh đẹp của
+      Phúc Thiện – Phúc Thịnh – 3D Tech Vision
+    </div>
+
+    <div class="button-row">
 
       <button type="button"
-        class="flower-choice"
-        data-flower="1">
-
-        <img src="./hoa-huong-duong.png"
-          alt="Hoa Hướng Dương mặt cười">
-
-        <span class="flower-name">
-          Hoa Hướng Dương
-        </span>
-
-        <span class="image-error">
-          Không tìm thấy hình ảnh
-        </span>
+        class="btn btn-outline"
+        id="resetButton">
+        Chọn hoa khác
       </button>
 
       <button type="button"
-        class="flower-choice"
-        data-flower="2">
-
-        <img src="./hoa-tulip.png"
-          alt="Hoa Tulip mặt cười">
-
-        <span class="flower-name">
-          Hoa Tulip
-        </span>
-
-        <span class="image-error">
-          Không tìm thấy hình ảnh
-        </span>
-      </button>
-
-      <button type="button"
-        class="flower-choice"
-        data-flower="3">
-
-        <img src="./hoa-cam-tu-cau.png"
-          alt="Hoa Cẩm Tú Cầu mặt cười">
-
-        <span class="flower-name">
-          Hoa Cẩm Tú Cầu
-        </span>
-
-        <span class="image-error">
-          Không tìm thấy hình ảnh
-        </span>
-      </button>
-
-      <button type="button"
-        class="flower-choice"
-        data-flower="4">
-
-        <img src="./hoa-cuc-trang.png"
-          alt="Hoa Cúc Trắng mặt cười">
-
-        <span class="flower-name">
-          Hoa Cúc Trắng
-        </span>
-
-        <span class="image-error">
-          Không tìm thấy hình ảnh
-        </span>
+        class="btn"
+        id="copyButton">
+        Sao chép lời chúc
       </button>
 
     </div>
 
-    <!-- PHẦN HIỂN THỊ LỜI CHÚC -->
-    <section id="resultBox" aria-live="polite">
-
-      <img id="resultImage"
-        alt="Bông hoa người nhận đã chọn">
-
-      <div class="result-title"
-        id="resultTitle"></div>
-
-      <div class="wish-heading"
-        id="wishHeading"></div>
-
-      <div class="wish-content"
-        id="wishContent"></div>
-
-      <div class="signature">
-        Thân gửi những bông hồng xinh đẹp của
-        Phúc Thiện – Phúc Thịnh – 3D Tech Vision
-      </div>
-
-      <div class="button-row">
-
-        <button type="button"
-          class="btn btn-outline"
-          id="resetButton">
-          Chọn hoa khác
-        </button>
-
-        <button type="button"
-          class="btn"
-          id="copyButton">
-          Sao chép lời chúc
-        </button>
-
-      </div>
-
-      <div id="copyNotice"
-        role="status"></div>
-
-    </section>
+    <div id="copyNotice" role="status"></div>
 
   </section>
+
+</section>
+
 </main>
 
 <script>
 "use strict";
 
-/* ======================================
-   1. KHAI BÁO ĐƯỜNG DẪN ẢNH
-   PHẢI TRÙNG TÊN FILE TRÊN GITHUB
-====================================== */
-
+/* DUONG DAN ANH CHINH XAC TREN GITHUB */
 const flowerImages = {
-  1: "./hoa-huong-duong.png",
+  1: "./hoa-huong-duong.jpg",
   2: "./hoa-tulip.png",
-  3: "./hoa-cam-tu-cau.png",
-  4: "./hoa-cuc-trang.png"
+  3: "./hoa-cam-tu-cau.jpg",
+  4: "./hoa-cuc.jpg"
 };
 
-/* ======================================
-   2. NỘI DUNG LỜI CHÚC
-====================================== */
-
+/* NOI DUNG LOI CHUC */
 const flowerMessages = {
   1: {
     name: "Hoa Hướng Dương",
@@ -656,23 +780,24 @@ const flowerMessages = {
   }
 };
 
-/* ======================================
-   3. QUẢN LÝ THÔNG TIN
-====================================== */
-
+/* QUAN LY NGUOI NHAN */
 let userName = "";
 let chosenWish = null;
 
+/* CHUYEN TRANG */
 function nextPage(number) {
-  const page = document.getElementById("page" + number);
+  const target = document.getElementById(
+    "page" + number
+  );
 
-  if (!page) return;
+  if (!target) return;
 
-  document.querySelectorAll(".page").forEach(p => {
-    p.classList.remove("active");
-  });
+  document.querySelectorAll(".page")
+    .forEach(function(page) {
+      page.classList.remove("active");
+    });
 
-  page.classList.add("active");
+  target.classList.add("active");
 
   window.scrollTo({
     top: 0,
@@ -680,33 +805,28 @@ function nextPage(number) {
   });
 
   if (number === 2) {
-    setTimeout(() => {
+    setTimeout(function() {
       document.getElementById("userName").focus();
     }, 150);
   }
 }
 
-/* ======================================
-   4. NÚT BẮT ĐẦU
-====================================== */
-
+/* NUT BAT DAU */
 document.getElementById("startButton")
   .addEventListener("click", function() {
     nextPage(2);
   });
 
-/* ======================================
-   5. NHẬP TÊN
-====================================== */
-
+/* NHAP TEN */
 document.getElementById("nameForm")
-  .addEventListener("submit", function(e) {
-    e.preventDefault();
+  .addEventListener("submit", function(event) {
+    event.preventDefault();
 
     const input = document.getElementById("userName");
     const error = document.getElementById("errorName");
 
-    const name = input.value.trim().replace(/\s+/g, " ");
+    const name = input.value.trim()
+      .replace(/\s+/g, " ");
 
     if (!name) {
       error.textContent =
@@ -721,14 +841,11 @@ document.getElementById("nameForm")
     nextPage(3);
   });
 
-/* ======================================
-   6. CHỌN HOA
-====================================== */
-
+/* CHON HOA */
 document.querySelectorAll(".flower-choice")
-  .forEach(button => {
+  .forEach(function(button) {
     button.addEventListener("click", function() {
-      const number = Number(this.dataset.flower);
+      const number = Number(button.dataset.flower);
       pickFlower(number);
     });
   });
@@ -746,7 +863,7 @@ function pickFlower(number) {
   chosenWish = data;
 
   document.querySelectorAll(".flower-choice")
-    .forEach(button => {
+    .forEach(function(button) {
       button.classList.remove("selected");
     });
 
@@ -759,41 +876,41 @@ function pickFlower(number) {
   image.src = flowerImages[number];
   image.alt = data.name;
 
-  document.getElementById("resultTitle").textContent =
-    "GỬI ĐẾN " + userName.toLocaleUpperCase("vi-VN");
+  document.getElementById("resultTitle")
+    .textContent =
+      "GỬI ĐẾN " + userName.toLocaleUpperCase("vi-VN");
 
-  document.getElementById("wishHeading").textContent =
-    data.title;
+  document.getElementById("wishHeading")
+    .textContent = data.title;
 
-  document.getElementById("wishContent").textContent =
-    data.wish;
+  document.getElementById("wishContent")
+    .textContent = data.wish;
 
-  document.getElementById("copyNotice").textContent = "";
+  document.getElementById("copyNotice")
+    .textContent = "";
 
   const result = document.getElementById("resultBox");
   result.style.display = "block";
 
-  setTimeout(() => {
+  setTimeout(function() {
     result.scrollIntoView({
       behavior: "smooth",
       block: "start"
     });
-  }, 100);
+  }, 120);
 }
 
-/* ======================================
-   7. CHỌN HOA KHÁC
-====================================== */
-
+/* CHON HOA KHAC */
 document.getElementById("resetButton")
   .addEventListener("click", function() {
+
     chosenWish = null;
 
     document.getElementById("resultBox")
       .style.display = "none";
 
     document.querySelectorAll(".flower-choice")
-      .forEach(button => {
+      .forEach(function(button) {
         button.classList.remove("selected");
       });
 
@@ -804,10 +921,7 @@ document.getElementById("resetButton")
       });
   });
 
-/* ======================================
-   8. SAO CHÉP LỜI CHÚC
-====================================== */
-
+/* SAO CHEP LOI CHUC */
 document.getElementById("copyButton")
   .addEventListener("click", copyWish);
 
@@ -815,7 +929,8 @@ async function copyWish() {
   if (!chosenWish) return;
 
   const text =
-    "GỬI ĐẾN " + userName.toLocaleUpperCase("vi-VN") +
+    "GỬI ĐẾN " +
+    userName.toLocaleUpperCase("vi-VN") +
     "\n\n" +
     chosenWish.title +
     "\n\n" +
@@ -826,15 +941,15 @@ async function copyWish() {
   const notice = document.getElementById("copyNotice");
 
   try {
-    if (!navigator.clipboard ||
-        !navigator.clipboard.writeText) {
+    if (!navigator.clipboard?.writeText) {
       throw new Error("Clipboard unavailable");
     }
 
     await navigator.clipboard.writeText(text);
+
     notice.textContent = "Đã sao chép lời chúc!";
 
-  } catch (e) {
+  } catch(error) {
     const textarea = document.createElement("textarea");
     textarea.value = text;
     textarea.style.position = "fixed";
@@ -848,7 +963,7 @@ async function copyWish() {
 
     try {
       copied = document.execCommand("copy");
-    } catch (error) {
+    } catch(e) {
       copied = false;
     }
 
@@ -860,12 +975,9 @@ async function copyWish() {
   }
 }
 
-/* ======================================
-   9. KIỂM TRA ĐƯỜNG DẪN ẢNH
-====================================== */
-
+/* PHAT HIEN ANH LOI */
 document.querySelectorAll(".flower-choice img")
-  .forEach(img => {
+  .forEach(function(img) {
 
     function reportError() {
       const warning = img.parentElement
@@ -875,7 +987,7 @@ document.querySelectorAll(".flower-choice img")
         warning.style.display = "block";
       }
 
-      console.error("Không tải được ảnh:", img.src);
+      console.error("Ảnh không tải được:", img.src);
     }
 
     img.addEventListener("error", reportError);
@@ -885,11 +997,9 @@ document.querySelectorAll(".flower-choice img")
     }
   });
 
-/* ======================================
-   10. HIỆU ỨNG CÁNH HOA
-====================================== */
-
-const rainContainer = document.getElementById("flowerRain");
+/* HIEU UNG CANH HOA ROI */
+const rainContainer =
+  document.getElementById("flowerRain");
 
 function createPetal() {
   if (document.hidden) return;
@@ -916,7 +1026,7 @@ if (!window.matchMedia(
 ).matches) {
   setInterval(createPetal, 450);
 }
-
 </script>
+
 </body>
 </html>
