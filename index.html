@@ -8,8 +8,8 @@
         :root {
             --primary-pink: #ff758c;
             --secondary-pink: #ff7eb3;
-            --bg-gradient: linear-gradient(135deg, #fff5f5 0%, #ffe3e3 100%);
-            --shadow-glow: 0 10px 30px rgba(255, 117, 140, 0.2);
+            --bg-gradient: linear-gradient(135deg, #fff3f5 0%, #ffe3e8 100%);
+            --shadow-glow: 0 15px 35px rgba(255, 117, 140, 0.25);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
@@ -24,29 +24,29 @@
             position: relative;
         }
 
-        /* ĐÃ SỬA LỖI: Lớp nền lấp lánh cho phép click xuyên qua */
-        .sparkle-bg {
+        /* Hiệu ứng hạt bụi lấp lánh rơi tràn màn hình */
+        .sparkle-canvas {
             position: absolute;
-            width: 100%;
-            height: 100%;
             top: 0; left: 0;
+            width: 100%; height: 100%;
             pointer-events: none;
-            z-index: 1;
+            z-index: 2;
         }
 
+        /* Khung thiệp mở rộng to rộng rãi, tràn màn hình chuyên nghiệp */
         .card-container {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            padding: 40px 30px;
-            border-radius: 24px;
-            width: 90%;
-            max-width: 480px;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(15px);
+            padding: 55px 40px;
+            border-radius: 30px;
+            width: 95%;
+            max-width: 650px; /* Tăng chiều rộng để khung rộng rãi hơn */
             box-shadow: var(--shadow-glow);
-            border: 1px solid rgba(255, 255, 255, 0.6);
+            border: 2px solid rgba(255, 255, 255, 0.9);
             text-align: center;
             position: relative;
             z-index: 10;
-            transition: all 0.5s ease-in-out;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .page { display: none; animation: fadeIn 0.6s ease-in-out forwards; }
@@ -57,124 +57,179 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Tiêu đề in hoa toàn bộ */
-        h2 { color: #d85a70; font-size: 22px; margin-bottom: 20px; line-height: 1.5; font-weight: 700; text-transform: uppercase; }
-        p { color: #555; font-size: 16px; line-height: 1.6; margin-bottom: 25px; }
+        h2 { 
+            color: #d85a70; 
+            font-size: 26px; 
+            margin-bottom: 25px; 
+            line-height: 1.5; 
+            font-weight: 800; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px;
+        }
+        
+        p { color: #5a5a5a; font-size: 18px; line-height: 1.7; margin-bottom: 35px; }
 
+        /* Nút bấm to, rõ ràng */
         button {
-            padding: 12px 28px;
-            font-size: 16px;
-            font-weight: 600;
+            padding: 15px 45px;
+            font-size: 18px;
+            font-weight: 700;
             color: white;
             background: linear-gradient(90deg, var(--primary-pink), var(--secondary-pink));
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(255, 117, 140, 0.4);
+            box-shadow: 0 5px 20px rgba(255, 117, 140, 0.4);
             transition: all 0.3s ease;
             position: relative;
-            z-index: 20; /* Đảm bảo nút luôn nằm trên cùng để bấm */
+            z-index: 20;
         }
 
         button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 117, 140, 0.6);
+            box-shadow: 0 8px 25px rgba(255, 117, 140, 0.6);
         }
 
+        /* Ô nhập chữ thiết kế to rộng */
         input[type="text"] {
             width: 100%;
-            padding: 14px 20px;
-            font-size: 16px;
+            max-width: 450px;
+            padding: 16px 25px;
+            font-size: 18px;
             border: 2px solid #ffd0d6;
             border-radius: 50px;
             outline: none;
             text-align: center;
             transition: all 0.3s;
-            margin-bottom: 20px;
-            background: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.95);
             position: relative;
             z-index: 20;
+            color: #333;
         }
 
         input[type="text"]:focus {
             border-color: var(--primary-pink);
-            box-shadow: 0 0 10px rgba(255, 117, 140, 0.2);
+            box-shadow: 0 0 15px rgba(255, 117, 140, 0.25);
         }
 
+        /* Khu vực hiển thị hoa đáng yêu */
         .flower-container {
             display: flex;
             justify-content: center;
-            gap: 25px;
-            margin: 25px 0;
+            gap: 30px;
+            margin: 35px 0;
             position: relative;
             z-index: 20;
+            flex-wrap: wrap;
         }
 
-        .flower {
-            font-size: 55px;
+        .flower-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             cursor: pointer;
-            transition: transform 0.3s ease, filter 0.3s;
-            display: inline-block;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .flower:hover {
-            transform: scale(1.25) rotate(5deg);
-            filter: drop-shadow(0 8px 16px rgba(255, 117, 140, 0.4));
+        .flower-bubble {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid #ffe3e7;
+            box-shadow: 0 6px 15px rgba(255, 117, 140, 0.15);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            margin-bottom: 8px;
+            background-size: 65%;
+            background-repeat: no-repeat;
+            background-position: center;
         }
 
+        /* Định dạng từng bông hoa theo hình của bạn gửi */
+        #flower1 .flower-bubble { background-image: url('https://postimg.cc'); }
+        #flower2 .flower-bubble { background-image: url('https://postimg.cc'); }
+        #flower3 .flower-bubble { background-image: url('https://postimg.cc'); }
+
+        .flower-label {
+            font-size: 14px;
+            font-weight: 700;
+            color: #e56b81;
+            background: #fff0f2;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid #ffd0d6;
+        }
+
+        .flower-item:hover {
+            transform: scale(1.15) translateY(-5px);
+        }
+        
+        .flower-item:hover .flower-bubble {
+            border-color: var(--primary-pink);
+            box-shadow: 0 10px 25px rgba(255, 117, 140, 0.35);
+        }
+
+        /* Vùng hiển thị kết quả dễ thương */
         #resultBox {
-            margin-top: 15px;
-            padding: 20px;
-            border-radius: 16px;
-            background: rgba(255, 245, 246, 0.9);
-            border-left: 4px solid var(--primary-pink);
-            min-height: 80px;
+            margin-top: 25px;
+            padding: 25px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(255, 245, 246, 0.95) 0%, rgba(255, 235, 238, 0.95) 100%);
+            border: 1px solid #ffd0d6;
+            border-left: 5px solid var(--primary-pink);
+            min-height: 100px;
             display: none;
-            animation: fadeIn 0.4s ease-in-out;
+            animation: fadeIn 0.5s ease-in-out;
         }
 
-        .greeting-title { font-weight: 700; color: #cc465e; margin-bottom: 8px; font-size: 18px; text-transform: uppercase; }
-        .wish-text { font-style: italic; color: #444; font-size: 15px; line-height: 1.6; }
+        .greeting-title { font-weight: 800; color: #cc465e; margin-bottom: 12px; font-size: 20px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .wish-text { font-style: italic; color: #3d3d3d; font-size: 16px; line-height: 1.7; font-weight: 500; }
     </style>
 </head>
 <body>
 
-    <svg class="sparkle-bg" xmlns="http://w3.org">
-        <circle cx="10%" cy="20%" r="2" fill="#ffccd5" opacity="0.8"/>
-        <circle cx="85%" cy="15%" r="3" fill="#ffb3c1" opacity="0.6"/>
-        <circle cx="75%" cy="80%" r="2" fill="#fff" opacity="0.9"/>
-        <circle cx="20%" cy="75%" r="4" fill="#ffccd5" opacity="0.5"/>
-        <circle cx="50%" cy="10%" r="1.5" fill="#ff758c" opacity="0.7"/>
-    </svg>
+    <canvas id="sparkleCanvas" class="sparkle-canvas"></canvas>
 
     <div class="card-container">
         
-        <!-- TRANG 1: TIÊU ĐỀ MỚI IN HOA -->
+        <!-- TRANG 1: TIÊU ĐỀ IN HOA -->
         <div id="page1" class="page active">
             <h2>🌸 GỬI TẶNG NHỮNG BÔNG HỒNG XINH ĐẸP CỦA PHÚC THIỆN - PHÚC THỊNH - 3DTV 🌸</h2>
             <p>Một không gian nhỏ tràn ngập những thông điệp tươi vui và nguồn năng lượng tích cực được chuẩn bị riêng dành cho các chị em.</p>
             <button onclick="nextPage(2)">Bắt đầu khám phá ✨</button>
         </div>
 
-        <!-- TRANG 2: NHẬP TÊN -->
+        <!-- TRANG 2: NHẬP TÊN CÂU TỪ MỚI DỄ THƯƠNG -->
         <div id="page2" class="page">
             <h2>CHÀO CHỊ, CHO TỤI EM BIẾT TÊN NHÉ! 🥰</h2>
-            <p>Hãy để lại tên của chị để nhận được thông điệp cá nhân hóa trân trọng nhất.</p>
-            <input type="text" id="userName" placeholder="Nhập tên của chị tại đây...">
+            <p>Hãy cho tụi em biết tên để tụi em gửi một chút ngọt ngào và năng lượng tích cực đến riêng chị nha!</p>
+            <input type="text" id="userName" placeholder="Nhập tên đáng yêu của chị vào đây...">
             <br>
             <button onclick="validateAndGo()">Tiếp tục ➔</button>
         </div>
 
-        <!-- TRANG 3: CHỌN HOA -->
+        <!-- TRANG 3: CHỌN HOA MẶT CƯỜI ĐÁNG YÊU -->
         <div id="page3" class="page">
             <h2>XIN MỜI CHỊ CHỌN 1 BÔNG HOA MAY MẮN 🌷</h2>
             <p>Mỗi bông hoa ẩn giấu một thông điệp năng lượng tích cực khác nhau dành riêng cho chị trong ngày hôm nay.</p>
             
             <div class="flower-container">
-                <span class="flower" onclick="pickFlower(this)">🌹</span>
-                <span class="flower" onclick="pickFlower(this)">🌻</span>
-                <span class="flower" onclick="pickFlower(this)">🌷</span>
+                <div class="flower-item" id="flower1" onclick="pickFlower(this)">
+                    <div class="flower-bubble"></div>
+                    <span class="flower-label">Hoa Cánh Bướm</span>
+                </div>
+                <div class="flower-item" id="flower2" onclick="pickFlower(this)">
+                    <div class="flower-bubble"></div>
+                    <span class="flower-label">Hoa Tulip</span>
+                </div>
+                <div class="flower-item" id="flower3" onclick="pickFlower(this)">
+                    <div class="flower-bubble"></div>
+                    <span class="flower-label">Hoa Hướng Dương</span>
+                </div>
             </div>
 
             <div id="resultBox">
@@ -186,57 +241,38 @@
     </div>
 
     <script>
-        function nextPage(pageNumber) {
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.getElementById('page' + pageNumber).classList.add('active');
-        }
+        // Hiệu ứng mưa bụi sáng nhẹ nhàng bay nền
+        const canvas = document.getElementById('sparkleCanvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
 
-        function validateAndGo() {
-            const name = document.getElementById('userName').value.trim();
-            if (!name) {
-                alert("Chị vui lòng nhập tên trước khi tiếp tục nhé ạ! 🥰");
-                return;
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height - canvas.height;
+                this.size = Math.random() * 3 + 1;
+                this.speed = Math.random() * 0.8 + 0.4;
+                this.alpha = Math.random() * 0.6 + 0.3;
+                this.angle = Math.random() * 2;
             }
-            nextPage(3);
-        }
-
-        const wishes = [
-            "Chúc chị một ngày làm việc tràn đầy năng lượng, luôn giữ vững thần thái rạng ngời và gặp thật nhiều may mắn trong mọi dự án!",
-            "Chúc chị luôn xinh đẹp tự tin, hạnh phúc trọn vẹn và luôn là bông hoa tỏa sáng, truyền cảm hứng tích cực đến mọi người xung quanh!",
-            "Mong rằng ngày hôm nay sẽ mang đến cho chị thật nhiều niềm vui bất ngờ, những nụ cười hạnh phúc và mọi công việc đều hanh thông, thuận lợi!",
-            "Chúc chị luôn an yên, tự tại, mỗi ngày đi làm là một ngày vui và gặt hái được thật nhiều thành tựu rực rỡ trên con đường sự nghiệp!",
-            "Chúc chị mãi giữ được sự trẻ trung, duyên dáng và có đủ sức khỏe, sự kiên định để hiện thực hóa mọi mục tiêu lớn lao của bản thân!",
-            "Gửi đến chị ngàn lời chúc tốt đẹp nhất! Chúc chị luôn tìm thấy niềm vui trong những điều nhỏ nhặt và luôn nở nụ cười rạng rỡ trên môi!",
-            "Chúc chị một ngày ngập tràn quà tặng của niềm vui, công việc thuận buồm xuôi gió và luôn nhận được sự yêu mến, trân trọng từ mọi người!",
-            "Mong chị luôn kiêu sa như đóa hồng, rực rỡ như hoa hướng dương và luôn có một tinh thần lạc quan, yêu đời đối diện với mọi thử thách!",
-            "Chúc chị ngày hôm nay có một buổi trà chiều thật thư thái, công việc giải quyết nhanh gọn và nhận được một bất ngờ siêu dễ thương!",
-            "Chúc chị luôn là phiên bản tuyệt vời nhất của chính mình: bản lĩnh trong công việc, ngọt ngào trong cuộc sống và luôn ngập tràn hạnh phúc!"
-        ];
-
-        let lastIndex = -1;
-
-        function pickFlower(element) {
-            const name = document.getElementById('userName').value.trim();
-            const resultBox = document.getElementById('resultBox');
-            const resTitle = document.getElementById('resTitle');
-            const resWish = document.getElementById('resWish');
-
-            element.style.transform = 'scale(0.8)';
-            setTimeout(() => { element.style.transform = ''; }, 150);
-
-            let randomIndex;
-            do {
-                randomIndex = Math.floor(Math.random() * wishes.length);
-            } while (randomIndex === lastIndex);
-            
-            lastIndex = randomIndex;
-            const finalWish = wishes[randomIndex];
-
-            resTitle.innerText = `✨ XIN CHÀO CHỊ ${name}!`;
-            resWish.innerText = finalWish;
-
-            resultBox.style.display = 'block';
-        }
-    </script>
-</body>
-</html>
+            update() {
+                this.y += this.speed;
+                this.x += Math.sin(this.angle) * 0.2;
+                this.angle += 0.01;
+                if (this.y > canvas.height) {
+                    this.y = -10;
+                    this.x = Math.random() * canvas.width;
+                }
+            }
+            draw() {
+                ctx.save();
+                ctx.globalAlpha = this.alpha;
+                ctx.fillStyle = '#ffccd5';
+                ctx.beginPath();
