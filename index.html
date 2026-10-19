@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gửi Tặng Những Điều Tuyệt Vời Nhất</title>
+    <title>GỬI TẶNG NHỮNG BÔNG HỒNG XINH ĐẸP</title>
     <style>
         :root {
             --primary-pink: #ff758c;
@@ -24,7 +24,7 @@
             position: relative;
         }
 
-        /* Hiệu ứng hạt bụi lấp lánh chạy nền */
+        /* ĐÃ SỬA LỖI: Lớp nền lấp lánh cho phép click xuyên qua */
         .sparkle-bg {
             position: absolute;
             width: 100%;
@@ -49,7 +49,6 @@
             transition: all 0.5s ease-in-out;
         }
 
-        /* Quản lý các trang ẩn/hiện */
         .page { display: none; animation: fadeIn 0.6s ease-in-out forwards; }
         .page.active { display: block; }
 
@@ -58,10 +57,10 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        h2 { color: #d85a70; font-size: 24px; margin-bottom: 20px; line-height: 1.4; font-weight: 700; }
+        /* Tiêu đề in hoa toàn bộ */
+        h2 { color: #d85a70; font-size: 22px; margin-bottom: 20px; line-height: 1.5; font-weight: 700; text-transform: uppercase; }
         p { color: #555; font-size: 16px; line-height: 1.6; margin-bottom: 25px; }
 
-        /* Nút bấm hiệu ứng sang trọng */
         button {
             padding: 12px 28px;
             font-size: 16px;
@@ -73,6 +72,8 @@
             cursor: pointer;
             box-shadow: 0 4px 15px rgba(255, 117, 140, 0.4);
             transition: all 0.3s ease;
+            position: relative;
+            z-index: 20; /* Đảm bảo nút luôn nằm trên cùng để bấm */
         }
 
         button:hover {
@@ -80,7 +81,6 @@
             box-shadow: 0 6px 20px rgba(255, 117, 140, 0.6);
         }
 
-        /* Ô nhập tên tinh tế */
         input[type="text"] {
             width: 100%;
             padding: 14px 20px;
@@ -92,6 +92,8 @@
             transition: all 0.3s;
             margin-bottom: 20px;
             background: rgba(255, 255, 255, 0.9);
+            position: relative;
+            z-index: 20;
         }
 
         input[type="text"]:focus {
@@ -99,12 +101,13 @@
             box-shadow: 0 0 10px rgba(255, 117, 140, 0.2);
         }
 
-        /* Danh sách hoa lấp lánh */
         .flower-container {
             display: flex;
             justify-content: center;
             gap: 25px;
             margin: 25px 0;
+            position: relative;
+            z-index: 20;
         }
 
         .flower {
@@ -120,7 +123,6 @@
             filter: drop-shadow(0 8px 16px rgba(255, 117, 140, 0.4));
         }
 
-        /* Vùng hiển thị kết quả trang nhã */
         #resultBox {
             margin-top: 15px;
             padding: 20px;
@@ -132,13 +134,12 @@
             animation: fadeIn 0.4s ease-in-out;
         }
 
-        .greeting-title { font-weight: 700; color: #cc465e; margin-bottom: 8px; font-size: 18px; }
+        .greeting-title { font-weight: 700; color: #cc465e; margin-bottom: 8px; font-size: 18px; text-transform: uppercase; }
         .wish-text { font-style: italic; color: #444; font-size: 15px; line-height: 1.6; }
     </style>
 </head>
 <body>
 
-    <!-- Nền lấp lánh hiệu ứng hạt chuyển động -->
     <svg class="sparkle-bg" xmlns="http://w3.org">
         <circle cx="10%" cy="20%" r="2" fill="#ffccd5" opacity="0.8"/>
         <circle cx="85%" cy="15%" r="3" fill="#ffb3c1" opacity="0.6"/>
@@ -149,25 +150,25 @@
 
     <div class="card-container">
         
-        <!-- TRANG 1: LỜI CHÀO MỞ ĐẦU -->
+        <!-- TRANG 1: TIÊU ĐỀ MỚI IN HOA -->
         <div id="page1" class="page active">
-            <h2>🌸 Gửi Tặng Những Điều Trân Quý 🌸</h2>
+            <h2>🌸 GỬI TẶNG NHỮNG BÔNG HỒNG XINH ĐẸP CỦA PHÚC THIỆN - PHÚC THỊNH - 3DTV 🌸</h2>
             <p>Một không gian nhỏ tràn ngập những thông điệp tươi vui và nguồn năng lượng tích cực được chuẩn bị riêng dành cho các chị em.</p>
             <button onclick="nextPage(2)">Bắt đầu khám phá ✨</button>
         </div>
 
         <!-- TRANG 2: NHẬP TÊN -->
         <div id="page2" class="page">
-            <h2>Chào Chị, Cho Tụi Em Biết Tên Nhé! 🥰</h2>
+            <h2>CHÀO CHỊ, CHO TỤI EM BIẾT TÊN NHÉ! 🥰</h2>
             <p>Hãy để lại tên của chị để nhận được thông điệp cá nhân hóa trân trọng nhất.</p>
             <input type="text" id="userName" placeholder="Nhập tên của chị tại đây...">
             <br>
             <button onclick="validateAndGo()">Tiếp tục ➔</button>
         </div>
 
-        <!-- TRANG 3: CHỌN HOA & BỐC THĂM LỜI CHÚC -->
+        <!-- TRANG 3: CHỌN HOA -->
         <div id="page3" class="page">
-            <h2>Xin mời chị chọn 1 bông hoa may mắn 🌷</h2>
+            <h2>XIN MỜI CHỊ CHỌN 1 BÔNG HOA MAY MẮN 🌷</h2>
             <p>Mỗi bông hoa ẩn giấu một thông điệp năng lượng tích cực khác nhau dành riêng cho chị trong ngày hôm nay.</p>
             
             <div class="flower-container">
@@ -185,13 +186,11 @@
     </div>
 
     <script>
-        // Hàm chuyển trang mượt mà
         function nextPage(pageNumber) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.getElementById('page' + pageNumber).classList.add('active');
         }
 
-        // Kiểm tra nhập tên trước khi qua trang bốc thăm
         function validateAndGo() {
             const name = document.getElementById('userName').value.trim();
             if (!name) {
@@ -201,7 +200,6 @@
             nextPage(3);
         }
 
-        // Kho 10 lời chúc ngẫu nhiên dung hòa giữa lịch sự, dễ thương và chuyên nghiệp
         const wishes = [
             "Chúc chị một ngày làm việc tràn đầy năng lượng, luôn giữ vững thần thái rạng ngời và gặp thật nhiều may mắn trong mọi dự án!",
             "Chúc chị luôn xinh đẹp tự tin, hạnh phúc trọn vẹn và luôn là bông hoa tỏa sáng, truyền cảm hứng tích cực đến mọi người xung quanh!",
@@ -215,7 +213,7 @@
             "Chúc chị luôn là phiên bản tuyệt vời nhất của chính mình: bản lĩnh trong công việc, ngọt ngào trong cuộc sống và luôn ngập tràn hạnh phúc!"
         ];
 
-        let lastIndex = -1; // Biến giữ vị trí câu chúc vừa quay để tránh lặp trùng nhau liên tiếp
+        let lastIndex = -1;
 
         function pickFlower(element) {
             const name = document.getElementById('userName').value.trim();
@@ -223,11 +221,9 @@
             const resTitle = document.getElementById('resTitle');
             const resWish = document.getElementById('resWish');
 
-            // Tạo hiệu ứng lắc nhẹ cho bông hoa khi được nhấn vào
             element.style.transform = 'scale(0.8)';
             setTimeout(() => { element.style.transform = ''; }, 150);
 
-            // Thuật toán chọn lời chúc ngẫu nhiên khác hoàn toàn với lần bấm trước đó
             let randomIndex;
             do {
                 randomIndex = Math.floor(Math.random() * wishes.length);
@@ -236,8 +232,11 @@
             lastIndex = randomIndex;
             const finalWish = wishes[randomIndex];
 
-            // Hiển thị nội dung cá nhân hóa một cách trang trọng
-            resTitle.innerText = `✨ Xin chào chị ${name}!`;
+            resTitle.innerText = `✨ XIN CHÀO CHỊ ${name}!`;
             resWish.innerText = finalWish;
 
-            // Hiển thị khung kết quả mượt mà
+            resultBox.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
