@@ -9,8 +9,8 @@
   <style>
     :root {
       --pink: #db6887;
-      --dark-pink: #a93c60;
-      --text: #594750;
+      --deep: #a93c60;
+      --ink: #594750;
     }
 
     * {
@@ -24,12 +24,12 @@
     body {
       margin: 0;
       min-height: 100vh;
-      padding: 28px 12px;
       display: grid;
       place-items: center;
-      background: linear-gradient(135deg, #fff6f8, #ffe3ec);
-      color: var(--text);
+      padding: 35px 12px;
       font-family: Arial, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: linear-gradient(135deg, #fff6f8, #ffe4ed);
     }
 
     .petals {
@@ -37,7 +37,6 @@
       inset: 0;
       overflow: hidden;
       pointer-events: none;
-      z-index: 0;
     }
 
     .petal {
@@ -45,27 +44,27 @@
       top: -25px;
       width: 11px;
       height: 17px;
-      background: #ef9eb8;
       border-radius: 80% 0 80% 0;
+      background: #ef9eb8;
       opacity: 0.55;
       animation: falling linear forwards;
     }
 
     @keyframes falling {
       to {
-        transform: translateY(110vh) rotate(550deg);
+        transform: translateY(110vh) rotate(540deg);
         opacity: 0;
       }
     }
 
     .card {
-      width: min(800px, 100%);
       position: relative;
       z-index: 1;
+      width: min(800px, 100%);
       padding: clamp(24px, 5vw, 45px);
-      border-radius: 26px;
       border: 1px solid white;
-      background: rgba(255, 255, 255, 0.96);
+      border-radius: 26px;
+      background: rgba(255, 255, 255, 0.97);
       box-shadow: 0 15px 45px rgba(190, 79, 113, 0.15);
       text-align: center;
     }
@@ -76,13 +75,13 @@
 
     .page.active {
       display: block;
-      animation: appear 0.4s ease;
+      animation: appear 0.35s ease;
     }
 
     @keyframes appear {
       from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(9px);
       }
       to {
         opacity: 1;
@@ -91,7 +90,7 @@
     }
 
     h1, h2 {
-      color: var(--dark-pink);
+      color: var(--deep);
       line-height: 1.45;
     }
 
@@ -109,32 +108,29 @@
     }
 
     .button {
-      border: none;
-      border-radius: 35px;
-      padding: 13px 23px;
       margin: 5px;
+      padding: 13px 22px;
+      border: 0;
+      border-radius: 35px;
       background: linear-gradient(90deg, #f07899, #d85b86);
       color: white;
       font-size: 15px;
-      font-weight: bold;
+      font-weight: 700;
       cursor: pointer;
-      box-shadow: 0 5px 14px rgba(216, 91, 134, 0.22);
-    }
-
-    .button:hover {
-      filter: brightness(1.04);
     }
 
     .button.secondary {
       background: #fff0f4;
-      color: var(--dark-pink);
+      color: var(--deep);
       border: 1px solid #efb5c7;
-      box-shadow: none;
     }
 
-    .button:focus-visible,
-    .flower:focus-visible,
-    .music-button:focus-visible {
+    .button:hover {
+      filter: brightness(1.05);
+    }
+
+    button:focus-visible,
+    input:focus-visible {
       outline: 3px solid #914166;
       outline-offset: 3px;
     }
@@ -147,7 +143,10 @@
       border-radius: 35px;
       font: inherit;
       text-align: center;
-      outline-color: #db6887;
+    }
+
+    .choose-title {
+      font-size: clamp(14px, 2.6vw, 22px);
     }
 
     .flowers {
@@ -158,15 +157,15 @@
     }
 
     .flower {
-      min-width: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 12px;
+      min-width: 0;
       padding: 13px 8px;
-      background: white;
       border: 2px solid #ffe0e9;
       border-radius: 18px;
+      background: white;
       cursor: pointer;
       transition: 0.2s ease;
     }
@@ -179,47 +178,40 @@
     }
 
     .flower img {
-      display: block;
       width: 100%;
       height: 130px;
       object-fit: contain;
     }
 
     .flower-name {
-      color: var(--dark-pink);
+      color: var(--deep);
       font-size: 12px;
       font-weight: 800;
       line-height: 1.4;
       text-align: center;
     }
 
-    .choose-title {
-      font-size: clamp(15px, 2.7vw, 23px);
-      white-space: nowrap;
-      letter-spacing: -0.2px;
-    }
-
     .result {
       display: none;
       margin-top: 25px;
-      padding: clamp(19px, 4vw, 30px);
+      padding: clamp(18px, 4vw, 30px);
       border: 1px solid #f4c9d5;
       border-radius: 22px;
       background: #fff8fa;
-      text-align: center;
     }
 
     .result-flower {
-      max-width: 145px;
-      max-height: 145px;
+      display: block;
       width: 100%;
+      max-width: 145px;
+      height: 130px;
+      margin: 0 auto 15px;
       object-fit: contain;
-      margin-bottom: 14px;
     }
 
     .recipient {
       margin: 10px 0 18px;
-      color: var(--dark-pink);
+      color: var(--deep);
       font-size: clamp(19px, 3.2vw, 25px);
       font-weight: 800;
       line-height: 1.5;
@@ -227,20 +219,20 @@
     }
 
     .wish-title {
+      margin: 15px 0 22px;
       color: #bb4b71;
+      font-weight: 800;
       font-size: clamp(17px, 2.8vw, 21px);
       line-height: 1.55;
-      font-weight: 800;
-      margin: 15px 0 22px;
     }
 
-    .wish-content {
+    .wish-text {
       text-align: left;
       font-size: 16px;
       line-height: 1.95;
     }
 
-    .wish-content p {
+    .wish-text p {
       margin: 0 0 17px;
     }
 
@@ -250,19 +242,12 @@
       border-top: 1px solid #f0c6d2;
       color: #a65b77;
       font-size: 14px;
-      line-height: 1.75;
       font-style: italic;
-      text-align: center;
+      line-height: 1.75;
     }
 
     .controls {
       margin-top: 20px;
-    }
-
-    .counter {
-      color: #997887;
-      font-size: 13px;
-      line-height: 1.6;
     }
 
     .music-button {
@@ -270,17 +255,33 @@
       top: 14px;
       right: 14px;
       z-index: 10;
+      padding: 10px 15px;
       border: 1px solid #eeb6c7;
       border-radius: 30px;
-      padding: 10px 15px;
       background: white;
-      color: var(--dark-pink);
-      font-weight: bold;
+      color: var(--deep);
+      font-weight: 700;
       cursor: pointer;
     }
 
+    .music-note {
+      position: fixed;
+      right: 14px;
+      top: 57px;
+      z-index: 10;
+      width: min(270px, calc(100vw - 28px));
+      margin: 0;
+      padding: 8px 11px;
+      border-radius: 12px;
+      background: white;
+      color: #a33457;
+      box-shadow: 0 4px 15px #d85b8620;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
     .notice {
-      color: #a93c60;
+      color: var(--deep);
       font-size: 14px;
     }
 
@@ -297,13 +298,12 @@
         padding: 25px 16px;
       }
 
-      .wish-content {
+      .wish-text {
         font-size: 15px;
       }
 
       .choose-title {
-        font-size: clamp(12px, 3.2vw, 17px);
-        letter-spacing: -0.5px;
+        font-size: clamp(14px, 3.4vw, 19px);
       }
     }
 
@@ -313,7 +313,10 @@
       *::after {
         animation: none !important;
         transition: none !important;
-        scroll-behavior: auto !important;
+      }
+
+      html {
+        scroll-behavior: auto;
       }
     }
   </style>
@@ -323,16 +326,38 @@
 
   <div class="petals" id="petals" aria-hidden="true"></div>
 
-  <button class="music-button" id="musicButton" type="button">
+  <!-- NÚT BẬT TẮT NHẠC -->
+  <button
+    class="music-button"
+    id="musicButton"
+    type="button">
     Bật nhạc
   </button>
 
-  <audio id="backgroundMusic" src="./music.mp3" loop preload="none"></audio>
+  <p
+    class="music-note"
+    id="musicNote"
+    role="status"
+    hidden>
+  </p>
+
+  <!--
+    TẢI FILE MP3 LÊN GITHUB.
+    ĐỔI TÊN FILE THÀNH music.mp3.
+    ĐẶT CÙNG THƯ MỤC VỚI index.html.
+  -->
+  <audio
+    id="backgroundMusic"
+    src="./music.mp3"
+    preload="none"
+    loop>
+  </audio>
 
   <main class="card">
 
-    <!-- TRANG 1: LỜI CHÀO -->
+    <!-- TRANG GIỚI THIỆU -->
     <section class="page active" id="page1">
+
       <h1>
         GỬI TẶNG NHỮNG BÔNG HỒNG XINH ĐẸP
         CỦA PHÚC THIỆN – PHÚC THỊNH – 3D TECH VISION
@@ -344,12 +369,16 @@
         nhân ngày Phụ nữ Việt Nam 20/10.
       </p>
 
-      <button class="button" id="startButton" type="button">
+      <button
+        class="button"
+        id="startButton"
+        type="button">
         Bắt đầu khám phá
       </button>
+
     </section>
 
-    <!-- TRANG 2: NHẬP TÊN -->
+    <!-- TRANG NHẬP TÊN -->
     <section class="page" id="page2">
 
       <h2>
@@ -358,7 +387,8 @@
       </h2>
 
       <p>
-        Hãy nhập tên để nhận một thông điệp dành riêng cho chị.
+        Hãy nhập tên để nhận một thông điệp
+        dành riêng cho chị.
       </p>
 
       <input
@@ -367,11 +397,13 @@
         type="text"
         maxlength="60"
         placeholder="Nhập tên của chị vào đây"
-        autocomplete="name"
-      >
+        autocomplete="name">
 
       <div>
-        <button class="button" id="continueButton" type="button">
+        <button
+          class="button"
+          id="continueButton"
+          type="button">
           Tiếp tục
         </button>
       </div>
@@ -380,7 +412,7 @@
 
     </section>
 
-    <!-- TRANG 3: CHỌN HOA VÀ NHẬN LỜI CHÚC -->
+    <!-- TRANG CHỌN HOA -->
     <section class="page" id="page3">
 
       <h2 class="choose-title">
@@ -394,56 +426,81 @@
 
       <div class="flowers" id="flowerGrid"></div>
 
-      <article class="result" id="resultBox" aria-live="polite">
+      <!-- PHẦN HIỂN THỊ LỜI CHÚC -->
+      <article
+        class="result"
+        id="resultBox"
+        aria-live="polite">
 
-        <img class="result-flower" id="resultImage" alt="Bông hoa đã chọn">
+        <img
+          class="result-flower"
+          id="resultImage"
+          alt="Bông hoa đã chọn">
 
+        <!-- TÊN NGƯỜI NHẬN Ở TRÊN -->
         <div class="recipient" id="recipientName"></div>
 
+        <!-- TIÊU ĐỀ Ở DƯỚI TÊN -->
         <div class="wish-title" id="wishTitle"></div>
 
-        <div class="wish-content">
+        <!-- CẢM ƠN TRƯỚC, LỜI CHÚC SAU -->
+        <div class="wish-text">
           <p id="wishThanks"></p>
           <p id="wishBody"></p>
         </div>
 
         <div class="signature">
           Thân gửi những bông hồng xinh đẹp của<br>
-          <strong>Phúc Thiện – Phúc Thịnh – 3D Tech Vision</strong>
+          <strong>
+            Phúc Thiện – Phúc Thịnh – 3D Tech Vision
+          </strong>
         </div>
 
+        <!-- KHÔNG HIỂN THỊ SỐ THỨ TỰ LỜI CHÚC -->
         <div class="controls">
-          <button class="button" id="nextWishButton" type="button">
+
+          <button
+            class="button"
+            id="nextWishButton"
+            type="button">
             Khám phá thêm lời chúc
           </button>
 
-          <button class="button secondary" id="copyButton" type="button">
+          <button
+            class="button secondary"
+            id="copyButton"
+            type="button">
             Sao chép lời chúc
           </button>
 
-          <button class="button secondary" id="chooseAgainButton" type="button">
+          <button
+            class="button secondary"
+            id="chooseAgainButton"
+            type="button">
             Chọn bông hoa khác
           </button>
-        </div>
 
-        <p class="counter" id="wishCounter"></p>
+        </div>
 
       </article>
 
-      <button class="button secondary" id="changeNameButton" type="button">
+      <button
+        class="button secondary"
+        id="changeNameButton"
+        type="button">
         Đổi tên người nhận
       </button>
 
     </section>
+
   </main>
 
   <script>
     "use strict";
 
-    // =============================================
+    // ==========================================
     // 1. HÌNH ẢNH 4 LOÀI HOA
-    // Giữ đúng tên ảnh đã tải lên GitHub.
-    // =============================================
+    // ==========================================
 
     const flowers = [
       {
@@ -468,15 +525,20 @@
       }
     ];
 
-    // =============================================
-    // 2. BỘ 40 LỜI CHÚC ĐÃ BIÊN TẬP
-    // Mỗi lời chúc gồm:
-    // [Tiêu đề, Câu cảm ơn, Nội dung chúc]
-    // =============================================
+    // ==========================================
+    // 2. BỘ 40 LỜI CHÚC
+    // MỖI HOA CÓ 10 LỜI CHÚC
+    //
+    // CẤU TRÚC:
+    // [TIÊU ĐỀ, LỜI CẢM ƠN, LỜI CHÚC]
+    // ==========================================
 
     const wishes = {
 
-      // HOA HƯỚNG DƯƠNG - 10 LỜI CHÚC
+      // ========================================
+      // HOA HƯỚNG DƯƠNG
+      // ========================================
+
       sunflower: [
 
         [
@@ -541,7 +603,10 @@
 
       ],
 
-      // HOA TULIP - 10 LỜI CHÚC
+      // ========================================
+      // HOA TULIP
+      // ========================================
+
       tulip: [
 
         [
@@ -606,7 +671,10 @@
 
       ],
 
-      // HOA CẨM TÚ CẦU - 10 LỜI CHÚC
+      // ========================================
+      // HOA CẨM TÚ CẦU
+      // ========================================
+
       hydrangea: [
 
         [
@@ -671,7 +739,10 @@
 
       ],
 
-      // HOA CÚC TRẮNG - 10 LỜI CHÚC
+      // ========================================
+      // HOA CÚC TRẮNG
+      // ========================================
+
       daisy: [
 
         [
@@ -735,28 +806,24 @@
         ]
 
       ]
+
     };
 
-    // =============================================
-    // 3. CÁC BIẾN ĐIỀU KHIỂN
-    // =============================================
+    // ==========================================
+    // 3. ĐIỀU KHIỂN GIAO DIỆN
+    // ==========================================
 
     const $ = (id) => document.getElementById(id);
 
-    let userName = "";
+    let recipient = "";
     let selectedFlower = null;
     let currentWish = null;
-    let currentQueue = [];
-    let shownCount = 0;
-    let lastWishIndex = -1;
 
-    // =============================================
-    // 4. CHUYỂN TRANG
-    // =============================================
+    const flowerStates = {};
 
     function showPage(number) {
-      document.querySelectorAll(".page").forEach((page) => {
-        page.classList.remove("active");
+      document.querySelectorAll(".page").forEach((el) => {
+        el.classList.remove("active");
       });
 
       $("page" + number).classList.add("active");
@@ -779,6 +846,15 @@
       }
     });
 
+    $("changeNameButton").addEventListener("click", () => {
+      showPage(2);
+      $("userName").focus();
+    });
+
+    // ==========================================
+    // 4. NHẬP TÊN NGƯỜI NHẬN
+    // ==========================================
+
     function submitName() {
       const name = $("userName").value
         .trim()
@@ -790,38 +866,36 @@
         return;
       }
 
-      userName = name;
+      recipient = name;
       selectedFlower = null;
       currentWish = null;
-      currentQueue = [];
-      shownCount = 0;
-      lastWishIndex = -1;
+
+      Object.keys(flowerStates).forEach((id) => {
+        delete flowerStates[id];
+      });
 
       $("nameError").textContent = "";
       $("resultBox").style.display = "none";
 
-      document.querySelectorAll(".flower").forEach((flower) => {
-        flower.classList.remove("selected");
+      document.querySelectorAll(".flower").forEach((el) => {
+        el.classList.remove("selected");
       });
 
       showPage(3);
     }
 
-    $("changeNameButton").addEventListener("click", () => {
-      showPage(2);
-      $("userName").focus();
-    });
-
-    // =============================================
-    // 5. CÁ NHÂN HÓA LỜI CHÚC THEO TÊN
+    // ==========================================
+    // 5. CƠ CHẾ PHÂN BỔ LỜI CHÚC
     //
-    // Tên + loại hoa quyết định lời chúc đầu.
-    // Những lời tiếp theo không lặp cho đến
-    // khi đã xem đủ 10 lời chúc.
+    // - Mỗi hoa có 10 lời chúc.
+    // - Lời đầu dựa trên tên và loại hoa.
+    // - Khám phá tiếp không lặp trong một vòng.
+    // - Không hiện số thứ tự trên giao diện.
     //
-    // Lưu ý: Hai tên khác nhau vẫn có thể
-    // trùng lời chúc do mỗi hoa có 10 mẫu.
-    // =============================================
+    // Tên khác nhau có thể trùng lời chúc.
+    // Đây là giới hạn của cách triển khai
+    // HTML tĩnh không có cơ sở dữ liệu chung.
+    // ==========================================
 
     function hashName(text) {
       let hash = 2166136261;
@@ -830,153 +904,167 @@
         .normalize("NFC")
         .toLocaleLowerCase("vi-VN");
 
-      for (const character of normalized) {
-        hash ^= character.codePointAt(0);
+      for (const char of normalized) {
+        hash ^= char.codePointAt(0);
         hash = Math.imul(hash, 16777619);
       }
 
       return hash >>> 0;
     }
 
-    function shuffle(array) {
-      const result = [...array];
+    function shuffle(items) {
+      const result = [...items];
 
       for (let i = result.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
 
-        [result[i], result[j]] = [result[j], result[i]];
+        [result[i], result[j]] =
+          [result[j], result[i]];
       }
 
       return result;
     }
 
-    function createWishQueue(flowerId, firstRound = false) {
-      const count = wishes[flowerId].length;
+    function newQueue(flowerId, previousIndex = -1, first = false) {
+      const length = wishes[flowerId].length;
 
       const indexes = Array.from(
-        { length: count },
-        (_, index) => index
+        { length },
+        (_, i) => i
       );
 
-      if (firstRound) {
-        // Lời chúc đầu được xác định từ tên người nhận.
+      if (first) {
         const firstIndex =
-          hashName(userName + "|" + flowerId) % count;
+          hashName(recipient + "|" + flowerId) % length;
 
         const remaining = indexes.filter(
-          (index) => index !== firstIndex
+          (i) => i !== firstIndex
         );
 
-        return [firstIndex, ...shuffle(remaining)];
+        return [
+          firstIndex,
+          ...shuffle(remaining)
+        ];
       }
 
-      // Tránh lặp liền kề giữa hai vòng 10 lời chúc.
-      const shuffled = shuffle(indexes);
+      const result = shuffle(indexes);
 
-      if (shuffled.length > 1 && shuffled[0] === lastWishIndex) {
-        const swapIndex = shuffled.findIndex(
-          (index) => index !== lastWishIndex
+      // Tránh hiển thị cùng một lời chúc
+      // hai lần liên tiếp khi bắt đầu vòng mới.
+      if (
+        result.length > 1 &&
+        result[0] === previousIndex
+      ) {
+        const other = result.findIndex(
+          (i) => i !== previousIndex
         );
 
-        [shuffled[0], shuffled[swapIndex]] =
-          [shuffled[swapIndex], shuffled[0]];
+        [result[0], result[other]] =
+          [result[other], result[0]];
       }
 
-      return shuffled;
+      return result;
     }
 
-    // =============================================
-    // 6. HIỂN THỊ 4 BÔNG HOA
-    // =============================================
+    // ==========================================
+    // 6. TẠO 4 BÔNG HOA
+    // ==========================================
 
-    flowers.forEach((flowerData) => {
+    flowers.forEach((flower) => {
       const button = document.createElement("button");
 
       button.type = "button";
       button.className = "flower";
-      button.dataset.flower = flowerData.id;
+      button.dataset.flower = flower.id;
 
       const image = document.createElement("img");
-      image.src = flowerData.image;
-      image.alt = flowerData.name;
+      image.src = flower.image;
+      image.alt = flower.name;
 
-      const name = document.createElement("strong");
-      name.className = "flower-name";
-      name.textContent = flowerData.name;
+      const caption = document.createElement("strong");
+      caption.className = "flower-name";
+      caption.textContent = flower.name;
 
-      button.appendChild(image);
-      button.appendChild(name);
+      button.append(image, caption);
 
       button.addEventListener("click", () => {
-        selectFlower(flowerData.id);
+        selectFlower(flower.id);
       });
 
       $("flowerGrid").appendChild(button);
     });
 
-    // =============================================
+    // ==========================================
     // 7. CHỌN HOA
-    // =============================================
+    // ==========================================
 
-    function selectFlower(flowerId) {
-      if (selectedFlower !== flowerId) {
-        selectedFlower = flowerId;
-        currentQueue = createWishQueue(flowerId, true);
-        shownCount = 0;
-        lastWishIndex = -1;
+    function selectFlower(id) {
+      selectedFlower = id;
+
+      if (!flowerStates[id]) {
+        flowerStates[id] = {
+          queue: newQueue(id, -1, true),
+          last: -1
+        };
       }
 
-      document.querySelectorAll(".flower").forEach((button) => {
-        button.classList.toggle(
+      document.querySelectorAll(".flower").forEach((el) => {
+        el.classList.toggle(
           "selected",
-          button.dataset.flower === flowerId
+          el.dataset.flower === id
         );
       });
 
-      displayWish();
+      showWish();
     }
 
-    // =============================================
-    // 8. HIỂN THỊ LỜI CHÚC
-    // =============================================
+    // ==========================================
+    // 8. HIỂN THỊ THÔNG ĐIỆP
+    //
+    // BỐ CỤC:
+    // GỬI ĐẾN CHỊ ĐẸP [TÊN]
+    // TIÊU ĐỀ
+    // CÂU CẢM ƠN
+    // LỜI CHÚC
+    //
+    // KHÔNG CÓ SỐ 1/10, 2/10...
+    // ==========================================
 
-    function displayWish() {
-      if (!selectedFlower) return;
-
-      if (currentQueue.length === 0) {
-        currentQueue = createWishQueue(selectedFlower, false);
-        shownCount = 0;
+    function showWish() {
+      if (!selectedFlower) {
+        return;
       }
 
-      const wishIndex = currentQueue.shift();
-      const wish = wishes[selectedFlower][wishIndex];
+      const state = flowerStates[selectedFlower];
 
-      currentWish = wish;
-      lastWishIndex = wishIndex;
-      shownCount++;
+      if (state.queue.length === 0) {
+        state.queue = newQueue(
+          selectedFlower,
+          state.last,
+          false
+        );
+      }
 
-      const flowerData = flowers.find(
-        (flower) => flower.id === selectedFlower
+      const index = state.queue.shift();
+
+      state.last = index;
+
+      currentWish = wishes[selectedFlower][index];
+
+      const flower = flowers.find(
+        (item) => item.id === selectedFlower
       );
 
-      $("resultImage").src = flowerData.image;
-      $("resultImage").alt = flowerData.name;
+      $("resultImage").src = flower.image;
+      $("resultImage").alt = flower.name;
 
       $("recipientName").textContent =
         "GỬI ĐẾN CHỊ ĐẸP " +
-        userName.toLocaleUpperCase("vi-VN");
+        recipient.toLocaleUpperCase("vi-VN");
 
-      $("wishTitle").textContent = wish[0];
-      $("wishThanks").textContent = wish[1];
-      $("wishBody").textContent = wish[2];
-
-      $("wishCounter").textContent =
-        "Thông điệp " +
-        shownCount +
-        " / " +
-        wishes[selectedFlower].length +
-        " của " +
-        flowerData.name;
+      $("wishTitle").textContent = currentWish[0];
+      $("wishThanks").textContent = currentWish[1];
+      $("wishBody").textContent = currentWish[2];
 
       $("resultBox").style.display = "block";
 
@@ -986,27 +1074,26 @@
       });
     }
 
-    // =============================================
-    // 9. XEM THÊM LỜI CHÚC
-    // =============================================
+    // ==========================================
+    // 9. KHÁM PHÁ THÊM LỜI CHÚC
+    // ==========================================
 
     $("nextWishButton").addEventListener("click", () => {
-      displayWish();
+      showWish();
     });
 
-    // =============================================
+    // ==========================================
     // 10. CHỌN HOA KHÁC
-    // =============================================
+    // ==========================================
 
     $("chooseAgainButton").addEventListener("click", () => {
       $("resultBox").style.display = "none";
 
-      document.querySelectorAll(".flower").forEach((button) => {
-        button.classList.remove("selected");
+      document.querySelectorAll(".flower").forEach((el) => {
+        el.classList.remove("selected");
       });
 
       selectedFlower = null;
-      currentWish = null;
 
       $("flowerGrid").scrollIntoView({
         behavior: "smooth",
@@ -1014,12 +1101,14 @@
       });
     });
 
-    // =============================================
+    // ==========================================
     // 11. SAO CHÉP LỜI CHÚC
-    // =============================================
+    // ==========================================
 
     $("copyButton").addEventListener("click", async () => {
-      if (!currentWish) return;
+      if (!currentWish) {
+        return;
+      }
 
       const message = [
         $("recipientName").textContent,
@@ -1040,7 +1129,8 @@
 
         setTimeout(() => {
           $("copyButton").textContent = "Sao chép lời chúc";
-        }, 1800);
+        }, 1700);
+
       } catch (error) {
         window.prompt(
           "Sao chép lời chúc bên dưới",
@@ -1049,64 +1139,128 @@
       }
     });
 
-    // =============================================
+    // ==========================================
     // 12. NHẠC NỀN
-    // Đặt music.mp3 cùng thư mục index.html.
-    // =============================================
+    //
+    // File nhạc phải tên music.mp3
+    // và nằm cùng thư mục index.html.
+    //
+    // Có nút bật, tắt và báo lỗi.
+    // ==========================================
 
     const music = $("backgroundMusic");
     const musicButton = $("musicButton");
+    const musicNote = $("musicNote");
 
     music.volume = 0.35;
+    music.loop = true;
+
+    let musicWasRequested = false;
+
+    function showMusicError(message) {
+      musicNote.textContent = message;
+      musicNote.hidden = false;
+      musicButton.textContent = "Bật nhạc";
+    }
 
     musicButton.addEventListener("click", async () => {
+      // Nếu nhạc đang phát thì tạm dừng.
       if (!music.paused) {
         music.pause();
+
         musicButton.textContent = "Bật nhạc";
+        musicNote.hidden = true;
+
         return;
       }
 
+      musicNote.hidden = true;
+      musicWasRequested = true;
+
+      musicButton.textContent = "Đang bật nhạc...";
+      musicButton.disabled = true;
+
       try {
         await music.play();
-        musicButton.textContent = "Tắt nhạc";
-      } catch (error) {
-        musicButton.textContent = "Bật nhạc";
 
-        alert(
-          "Chưa phát được nhạc. Vui lòng kiểm tra file music.mp3 trên GitHub."
+        musicButton.textContent = "Tắt nhạc";
+
+      } catch (error) {
+        console.error(
+          "Lỗi phát nhạc:",
+          error,
+          music.currentSrc
         );
+
+        let message =
+          "Chưa phát được nhạc. Hãy kiểm tra file music.mp3 đã được tải lên GitHub cùng thư mục với index.html và Vercel đã cập nhật.";
+
+        if (error.name === "NotAllowedError") {
+          message =
+            "Trình duyệt chưa cho phép phát nhạc. Chị thử bấm Bật nhạc lại nhé.";
+        }
+
+        if (error.name === "NotSupportedError") {
+          message =
+            "Trình duyệt không đọc được file nhạc. Vui lòng kiểm tra định dạng MP3.";
+        }
+
+        showMusicError(message);
+
+      } finally {
+        musicButton.disabled = false;
       }
     });
 
-    // =============================================
+    music.addEventListener("error", () => {
+      if (!musicWasRequested) {
+        return;
+      }
+
+      console.error(
+        "Không tải được file MP3:",
+        music.currentSrc,
+        music.error
+      );
+
+      showMusicError(
+        "Không tìm thấy hoặc không đọc được file music.mp3 trên website."
+      );
+    });
+
+    // ==========================================
     // 13. HIỆU ỨNG CÁNH HOA RƠI
-    // Không sử dụng emoji.
-    // =============================================
+    // ==========================================
 
-    function createPetal() {
-      if (document.hidden) return;
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
 
-      const petal = document.createElement("span");
+    if (!reducedMotion) {
+      setInterval(() => {
+        if (document.hidden) {
+          return;
+        }
 
-      petal.className = "petal";
-      petal.style.left = Math.random() * 100 + "vw";
-      petal.style.animationDuration =
-        5 + Math.random() * 4 + "s";
+        const petal = document.createElement("span");
 
-      $("petals").appendChild(petal);
+        petal.className = "petal";
 
-      setTimeout(() => {
-        petal.remove();
-      }, 9500);
+        petal.style.left =
+          Math.random() * 100 + "vw";
+
+        petal.style.animationDuration =
+          5 + Math.random() * 4 + "s";
+
+        $("petals").appendChild(petal);
+
+        setTimeout(() => {
+          petal.remove();
+        }, 9500);
+
+      }, 450);
     }
 
-    if (
-      !window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-      ).matches
-    ) {
-      setInterval(createPetal, 450);
-    }
   </script>
 
 </body>
