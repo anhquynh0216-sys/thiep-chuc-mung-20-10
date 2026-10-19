@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#fff3f5">
-<title>Thiệp chúc mừng 20/10 - Phúc Thiện - Phúc Thịnh - 3DTV</title>
+<title>Thiệp chúc mừng 20/10 | Phúc Thiện – Phúc Thịnh – 3D Tech Vision</title>
 
 <style>
 :root {
@@ -15,13 +15,9 @@
   --text: #4d4d4d;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
@@ -31,13 +27,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg,#fff3f5,#ffe3e8);
+  background: linear-gradient(135deg, #fff3f5, #ffe3e8);
   font-family: "Segoe UI", Arial, sans-serif;
   color: var(--text);
   overflow-x: hidden;
 }
 
-/* HOA ROI NHE NANG */
+/* HIỆU ỨNG CÁNH HOA RƠI */
 #flowerRain {
   position: fixed;
   inset: 0;
@@ -57,13 +53,8 @@ body {
   animation: fall linear forwards;
 }
 
-.petal:nth-child(3n) {
-  background: #ffe0e8;
-}
-
-.petal:nth-child(4n) {
-  background: rgba(255,255,255,.9);
-}
+.petal:nth-child(3n) { background: #ffe0e8; }
+.petal:nth-child(4n) { background: rgba(255,255,255,.9); }
 
 @keyframes fall {
   0% {
@@ -78,7 +69,7 @@ body {
   }
 }
 
-/* KHUNG CHINH */
+/* KHUNG THIỆP */
 .card {
   position: relative;
   z-index: 10;
@@ -92,10 +83,7 @@ body {
   text-align: center;
 }
 
-/* CHUYEN TRANG */
-.page {
-  display: none;
-}
+.page { display: none; }
 
 .page.active {
   display: block;
@@ -113,11 +101,11 @@ body {
   }
 }
 
-/* TIEU DE CHUNG */
+/* TIÊU ĐỀ */
 h1, h2 {
   margin: 0 auto 22px;
   color: var(--pink-dark);
-  font-size: clamp(19px,2.8vw,26px);
+  font-size: clamp(19px, 2.8vw, 26px);
   font-weight: 800;
   line-height: 1.5;
   text-transform: uppercase;
@@ -130,22 +118,17 @@ p {
   color: #606060;
   font-size: 17px;
   line-height: 1.85;
-  overflow-wrap: normal;
-  word-break: normal;
 }
 
-/* TIEU DE CHON HOA: MOT DONG */
+/* TIÊU ĐỀ CHỌN HOA MỘT DÒNG */
 #page3 > h2 {
-  font-size: clamp(9px,2.8vw,20px);
+  font-size: clamp(9px, 2.8vw, 20px);
   letter-spacing: -.35px;
   white-space: nowrap;
   text-wrap: nowrap;
-  font-weight: 800;
-  line-height: 1.6;
   max-width: 100%;
 }
 
-/* DUONG TRANG TRI */
 .line {
   width: 85px;
   height: 3px;
@@ -154,20 +137,20 @@ p {
   background: linear-gradient(90deg,#ff758c,#ffd6e1);
 }
 
-/* NUT BAM */
+/* NÚT BẤM */
 .btn {
   appearance: none;
   border: none;
   border-radius: 50px;
   padding: 15px 35px;
   background: linear-gradient(90deg,var(--pink),var(--pink-light));
-  color: #fff;
+  color: white;
   font-size: 17px;
   font-weight: 700;
   line-height: 1.4;
   cursor: pointer;
   box-shadow: 0 5px 18px rgba(255,117,140,.32);
-  transition: transform .2s,box-shadow .2s;
+  transition: transform .2s, box-shadow .2s;
   touch-action: manipulation;
 }
 
@@ -197,7 +180,7 @@ input:focus-visible {
   margin-top: 24px;
 }
 
-/* O NHAP TEN */
+/* NHẬP TÊN */
 #userName {
   display: block;
   width: 100%;
@@ -225,7 +208,7 @@ input:focus-visible {
   margin-bottom: 12px;
 }
 
-/* KHU VUC CHON HOA */
+/* KHU VỰC BỐN BÔNG HOA */
 .flower-grid {
   display: grid;
   grid-template-columns: repeat(4,minmax(0,1fr));
@@ -246,7 +229,7 @@ input:focus-visible {
   border: 2px solid #ffe1e8;
   background: #fff9fa;
   cursor: pointer;
-  transition: transform .25s,border-color .25s;
+  transition: transform .25s, border-color .25s;
 }
 
 .flower-choice:hover {
@@ -259,14 +242,13 @@ input:focus-visible {
   background: #fff0f4;
 }
 
-/* ANH GOC KHONG BI CAT */
 .flower-choice img {
   display: block;
   width: 100%;
   height: 190px;
   object-fit: contain;
   object-position: center;
-  background: #fff;
+  background: white;
   border-radius: 12px;
 }
 
@@ -287,7 +269,7 @@ input:focus-visible {
   margin-top: 5px;
 }
 
-/* PHAN THIEP VA LOI CHUC */
+/* THIỆP LỜI CHÚC */
 #resultBox {
   display: none;
   margin: 32px auto 0;
@@ -311,38 +293,36 @@ input:focus-visible {
   box-shadow: 0 7px 20px rgba(255,117,140,.15);
 }
 
-/* TIEU DE TEN NGUOI NHAN */
 .result-title {
-  margin: 0 auto 15px;
+  margin: 0 auto 16px;
   color: #ca4863;
   font-size: clamp(17px,2.5vw,23px);
   font-weight: 800;
   line-height: 1.5;
-  overflow-wrap: normal;
+  overflow-wrap: break-word;
   word-break: normal;
+  text-wrap: balance;
 }
 
-/* TIEU DE LOI CHUC */
 .wish-heading {
   margin: 0 auto 22px;
   color: #d5667f;
-  font-size: clamp(13px,2.25vw,19px);
+  font-size: clamp(14px,2.25vw,19px);
   font-weight: 800;
   line-height: 1.6;
   letter-spacing: -.25px;
   text-wrap: balance;
-  overflow-wrap: normal;
+  overflow-wrap: break-word;
   word-break: normal;
 }
 
-/* NOI DUNG LOI CHUC */
 .wish-content {
   max-width: 620px;
   margin: 0 auto;
   color: #444;
   font-size: 17px;
   font-weight: 400;
-  line-height: 2;
+  line-height: 1.95;
   text-align: center;
   white-space: pre-line;
   overflow-wrap: break-word;
@@ -359,6 +339,13 @@ input:focus-visible {
   line-height: 1.8;
   text-align: center;
   text-wrap: balance;
+}
+
+.wish-counter {
+  color: #b47b89;
+  font-size: 13px;
+  margin-top: 18px;
+  font-style: italic;
 }
 
 #copyNotice {
@@ -386,11 +373,9 @@ input:focus-visible {
   }
 }
 
-/* DIEN THOAI */
+/* ĐIỆN THOẠI */
 @media(max-width:600px) {
-  body {
-    padding: 14px 10px;
-  }
+  body { padding: 14px 10px; }
 
   .card {
     padding: 32px 15px;
@@ -435,30 +420,24 @@ input:focus-visible {
     border-radius: 15px;
   }
 
-  .flower-choice img {
-    height: 165px;
-  }
+  .flower-choice img { height: 165px; }
 
   .flower-name {
     font-size: 13px;
     margin-top: 9px;
   }
 
-  #resultBox {
-    padding: 24px 14px;
-  }
+  #resultBox { padding: 24px 14px; }
 
   #resultImage {
     width: min(100%,200px);
     height: 250px;
   }
 
-  .result-title {
-    font-size: 18px;
-  }
+  .result-title { font-size: 18px; }
 
   .wish-heading {
-    font-size: clamp(12px,3.3vw,16px);
+    font-size: clamp(13px,3.3vw,16px);
     line-height: 1.65;
     margin-bottom: 17px;
   }
@@ -475,9 +454,7 @@ input:focus-visible {
 }
 
 @media(max-width:360px) {
-  .flower-choice img {
-    height: 135px;
-  }
+  .flower-choice img { height: 135px; }
 
   #page3 > h2 {
     font-size: 8px;
@@ -486,9 +463,7 @@ input:focus-visible {
 }
 
 @media(prefers-reduced-motion:reduce) {
-  .petal {
-    display: none;
-  }
+  .petal { display: none; }
 
   *,*::before,*::after {
     animation-duration: .01ms !important;
@@ -504,7 +479,7 @@ input:focus-visible {
 
 <main class="card">
 
-<!-- TRANG 1 -->
+<!-- TRANG 1: CHÀO MỪNG -->
 <section class="page active" id="page1">
 
   <h1>
@@ -520,14 +495,13 @@ input:focus-visible {
     được chuẩn bị riêng dành cho các chị em.
   </p>
 
-  <button type="button"
-    class="btn" id="startButton">
+  <button type="button" class="btn" id="startButton">
     Bắt đầu khám phá
   </button>
 
 </section>
 
-<!-- TRANG 2 -->
+<!-- TRANG 2: NHẬP TÊN -->
 <section class="page" id="page2">
 
   <h2>
@@ -543,7 +517,6 @@ input:focus-visible {
   </p>
 
   <form id="nameForm">
-
     <input
       id="userName"
       type="text"
@@ -558,12 +531,11 @@ input:focus-visible {
     <button type="submit" class="btn">
       Tiếp tục
     </button>
-
   </form>
 
 </section>
 
-<!-- TRANG 3 -->
+<!-- TRANG 3: CHỌN HOA -->
 <section class="page" id="page3">
 
   <h2>
@@ -573,122 +545,90 @@ input:focus-visible {
   <div class="line"></div>
 
   <p>
-    Mỗi bông hoa đang ẩn chứa một thông điệp nhỏ
-    dành riêng cho người đẹp.
-    Hãy chọn bông hoa mà chị yêu thích nhất nhé!
+    Mỗi bông hoa đều cất giữ những lời chúc
+    nhỏ xinh dành riêng cho chị.
+    Hãy chọn bông hoa mình yêu thích
+    để khám phá những điều bất ngờ nhé!
   </p>
 
   <div class="flower-grid" id="flowerGrid">
 
     <button type="button"
-      class="flower-choice"
-      data-flower="1">
+      class="flower-choice" data-flower="1">
 
-      <img
-        src="./hoa-huong-duong.jpg"
-        alt="Hoa Hướng Dương mặt cười"
-      >
+      <img src="./hoa-huong-duong.jpg"
+        alt="Hoa Hướng Dương mặt cười">
 
-      <span class="flower-name">
-        Hoa Hướng Dương
-      </span>
-
-      <span class="image-error">
-        Không tìm thấy ảnh
-      </span>
+      <span class="flower-name">Hoa Hướng Dương</span>
+      <span class="image-error">Không tìm thấy ảnh</span>
     </button>
 
     <button type="button"
-      class="flower-choice"
-      data-flower="2">
+      class="flower-choice" data-flower="2">
 
-      <img
-        src="./hoa-tulip.png"
-        alt="Hoa Tulip mặt cười"
-      >
+      <img src="./hoa-tulip.png"
+        alt="Hoa Tulip mặt cười">
 
-      <span class="flower-name">
-        Hoa Tulip
-      </span>
-
-      <span class="image-error">
-        Không tìm thấy ảnh
-      </span>
+      <span class="flower-name">Hoa Tulip</span>
+      <span class="image-error">Không tìm thấy ảnh</span>
     </button>
 
     <button type="button"
-      class="flower-choice"
-      data-flower="3">
+      class="flower-choice" data-flower="3">
 
-      <img
-        src="./hoa-cam-tu-cau.jpg"
-        alt="Hoa Cẩm Tú Cầu mặt cười"
-      >
+      <img src="./hoa-cam-tu-cau.jpg"
+        alt="Hoa Cẩm Tú Cầu mặt cười">
 
-      <span class="flower-name">
-        Hoa Cẩm Tú Cầu
-      </span>
-
-      <span class="image-error">
-        Không tìm thấy ảnh
-      </span>
+      <span class="flower-name">Hoa Cẩm Tú Cầu</span>
+      <span class="image-error">Không tìm thấy ảnh</span>
     </button>
 
     <button type="button"
-      class="flower-choice"
-      data-flower="4">
+      class="flower-choice" data-flower="4">
 
-      <img
-        src="./hoa-cuc.jpg"
-        alt="Hoa Cúc Trắng mặt cười"
-      >
+      <img src="./hoa-cuc.jpg"
+        alt="Hoa Cúc Trắng mặt cười">
 
-      <span class="flower-name">
-        Hoa Cúc Trắng
-      </span>
-
-      <span class="image-error">
-        Không tìm thấy ảnh
-      </span>
+      <span class="flower-name">Hoa Cúc Trắng</span>
+      <span class="image-error">Không tìm thấy ảnh</span>
     </button>
 
   </div>
 
-  <!-- THIEP LOI CHUC -->
+  <!-- KẾT QUẢ LỜI CHÚC -->
   <section id="resultBox"
     aria-live="polite"
     aria-label="Lời chúc dành cho người nhận">
 
-    <img
-      id="resultImage"
-      alt="Bông hoa đã chọn"
-    >
+    <img id="resultImage" alt="Bông hoa đã chọn">
 
-    <div class="result-title"
-      id="resultTitle"></div>
+    <div class="result-title" id="resultTitle"></div>
 
-    <div class="wish-heading"
-      id="wishHeading"></div>
+    <div class="wish-heading" id="wishHeading"></div>
 
-    <div class="wish-content"
-      id="wishContent"></div>
+    <div class="wish-content" id="wishContent"></div>
 
     <div class="signature">
       Thân gửi những bông hồng xinh đẹp của
       Phúc Thiện – Phúc Thịnh – 3D Tech Vision
     </div>
 
+    <div class="wish-counter" id="wishCounter"></div>
+
     <div class="button-row">
 
       <button type="button"
-        class="btn btn-outline"
-        id="resetButton">
+        class="btn btn-outline" id="resetButton">
         Chọn hoa khác
       </button>
 
       <button type="button"
-        class="btn"
-        id="copyButton">
+        class="btn" id="nextWishButton">
+        Khám phá lời chúc khác
+      </button>
+
+      <button type="button"
+        class="btn btn-outline" id="copyButton">
         Sao chép lời chúc
       </button>
 
@@ -699,13 +639,15 @@ input:focus-visible {
   </section>
 
 </section>
-
 </main>
 
 <script>
 "use strict";
 
-/* DUONG DAN ANH CHINH XAC TREN GITHUB */
+/* ==================================
+   1. ĐƯỜNG DẪN HÌNH ẢNH GỐC
+================================== */
+
 const flowerImages = {
   1: "./hoa-huong-duong.jpg",
   2: "./hoa-tulip.png",
@@ -713,89 +655,300 @@ const flowerImages = {
   4: "./hoa-cuc.jpg"
 };
 
-/* NOI DUNG LOI CHUC */
+/* ==================================
+   2. 16 LỜI CHÚC BIÊN TẬP HOÀN CHỈNH
+   MỖI BÔNG HOA CÓ 4 LỜI CHÚC
+================================== */
+
 const flowerMessages = {
-  1: {
-    name: "Hoa Hướng Dương",
-    title: "LUÔN RẠNG RỠ NHƯ ĐÓA HƯỚNG DƯƠNG",
-    wish:
-      "Như những đóa hướng dương luôn hướng về ánh nắng, " +
-      "mong chị luôn giữ được nụ cười rạng rỡ, " +
-      "sự lạc quan và nguồn năng lượng tích cực " +
-      "rất riêng của mình.\n\n" +
-      "Chúc chị thật nhiều sức khỏe, công việc thuận lợi, " +
-      "mọi dự định đều có những khởi đầu tốt đẹp. " +
-      "Dù bận rộn đến đâu, mong chị vẫn luôn có thời gian " +
-      "chăm sóc bản thân và tận hưởng những điều giản dị " +
-      "mà ý nghĩa trong cuộc sống.\n\n" +
-      "Chúc chị một ngày Phụ nữ Việt Nam 20/10 " +
-      "thật rạng rỡ, vui vẻ và đáng nhớ!"
-  },
 
-  2: {
-    name: "Hoa Tulip",
-    title: "DỊU DÀNG TỎA SẮC, HẠNH PHÚC ĐONG ĐẦY",
-    wish:
-      "Một đóa Tulip nhỏ xinh gửi đến chị, " +
-      "thay cho những lời chúc tốt đẹp và chân thành nhất.\n\n" +
-      "Chúc chị luôn xinh đẹp, tự tin và có thật nhiều niềm vui. " +
-      "Mong rằng mỗi ngày trôi qua đều mang đến " +
-      "những điều dễ thương, những bất ngờ nho nhỏ " +
-      "và thật nhiều lý do để mỉm cười.\n\n" +
-      "Chúc chị một ngày 20/10 thật ấm áp, " +
-      "hạnh phúc và ngập tràn yêu thương!"
-  },
+  /* ===== HOA HƯỚNG DƯƠNG ===== */
+  1: [
+    {
+      title: "NẮNG TRONG ÁNH MẮT – VUI TRONG NỤ CƯỜI",
+      wish:
+        "Nhân ngày Phụ nữ Việt Nam 20/10, " +
+        "chúc chị luôn giữ được nụ cười tươi tắn, " +
+        "tinh thần lạc quan và nguồn năng lượng tích cực " +
+        "rất riêng của mình.\n\n" +
+        "Mong mỗi ngày đều mang đến cho chị " +
+        "những niềm vui mới, công việc thuận lợi " +
+        "và những khoảnh khắc đáng nhớ bên người thân yêu. " +
+        "Chúc chị luôn rạng rỡ, tự tin " +
+        "và có thật nhiều điều tốt đẹp để mong chờ!"
+    },
 
-  3: {
-    name: "Hoa Cẩm Tú Cầu",
-    title: "ĐONG ĐẦY YÊU THƯƠNG, TRỌN VẸN NIỀM VUI",
-    wish:
-      "Như những cánh hoa cẩm tú cầu nhỏ xinh " +
-      "cùng kết thành một đóa hoa rực rỡ, " +
-      "mong cuộc sống của chị luôn được vun đắp " +
-      "bởi những tình cảm chân thành và sự quan tâm ấm áp.\n\n" +
-      "Chúc chị luôn mạnh khỏe, bình an, " +
-      "có thêm nhiều niềm vui bên gia đình, bạn bè " +
-      "và những người thân yêu. " +
-      "Mong những điều tốt đẹp sẽ luôn đồng hành " +
-      "cùng chị trên chặng đường phía trước.\n\n" +
-      "Chúc chị một ngày 20/10 " +
-      "thật ngọt ngào và đáng nhớ!"
-  },
+    {
+      title: "MỘT CHÚT NẮNG VÀNG – NGẬP TRÀN NIỀM VUI",
+      wish:
+        "Gửi đến chị một đóa hướng dương xinh xắn, " +
+        "thay cho lời chúc về những ngày thật tươi sáng.\n\n" +
+        "Chúc chị có một ngày 20/10 ngập tràn tiếng cười, " +
+        "nhận được những lời hỏi thăm ấm áp " +
+        "và cả những bất ngờ nho nhỏ. " +
+        "Mong những ngày tiếp theo của chị " +
+        "luôn có thêm niềm vui, may mắn " +
+        "và những trải nghiệm khiến chị mỉm cười " +
+        "mỗi khi nhớ lại."
+    },
 
-  4: {
-    name: "Hoa Cúc Trắng",
-    title: "NỤ CƯỜI RẠNG RỠ, NGÀY MỚI AN VUI",
-    wish:
-      "Gửi chị một đóa cúc trắng nhỏ xinh, " +
-      "cùng lời chúc thật nhiều sức khỏe, " +
-      "niềm vui và những điều bình yên trong cuộc sống.\n\n" +
-      "Mong chị luôn giữ được sự trẻ trung, " +
-      "tinh thần yêu đời và nụ cười thật tươi. " +
-      "Chúc cho mỗi ngày của chị đều có " +
-      "những khoảnh khắc vui vẻ, " +
-      "công việc thuận lợi và thật nhiều điều tốt đẹp.\n\n" +
-      "Chúc chị ngày Phụ nữ Việt Nam 20/10 " +
-      "thật vui, ấm áp và hạnh phúc!"
-  }
+    {
+      title: "TỰ TIN TỎA SÁNG – VỮNG VÀNG BƯỚC TIẾP",
+      wish:
+        "Mỗi người phụ nữ đều có nét đẹp, " +
+        "thế mạnh và những ước mơ rất riêng. " +
+        "Chúc chị luôn tin vào bản thân, " +
+        "vững vàng trước thử thách " +
+        "và mạnh dạn theo đuổi những điều mình mong muốn.\n\n" +
+        "Mong mọi nỗ lực của chị đều được ghi nhận, " +
+        "mọi thành quả đều mang đến niềm tự hào. " +
+        "Chúc chị một ngày 20/10 thật vui " +
+        "và một chặng đường phía trước " +
+        "với nhiều cơ hội đáng mong đợi!"
+    },
+
+    {
+      title: "RỰC RỠ HÔM NAY – TƯƠI ĐẸP NGÀY MAI",
+      wish:
+        "Như đóa hướng dương luôn hướng về ánh nắng, " +
+        "chúc chị luôn giữ được tinh thần tích cực " +
+        "và niềm tin vào những điều tốt đẹp.\n\n" +
+        "Mong chị có đủ sức khỏe để thực hiện " +
+        "những dự định của mình, đủ thời gian " +
+        "để chăm sóc bản thân và tận hưởng cuộc sống. " +
+        "Chúc chị luôn có những người thân yêu ở bên " +
+        "để cùng sẻ chia niềm vui, " +
+        "và mỗi ngày trôi qua " +
+        "đều để lại một kỷ niệm đáng nhớ."
+    }
+  ],
+
+  /* ===== HOA TULIP ===== */
+  2: [
+    {
+      title: "MỘT ĐÓA HOA XINH – NGÀN LỜI CHÚC ĐẸP",
+      wish:
+        "Một đóa Tulip nhỏ xinh gửi đến chị " +
+        "thay cho những lời chúc chân thành " +
+        "nhân ngày Phụ nữ Việt Nam 20/10.\n\n" +
+        "Chúc chị luôn xinh đẹp, tự tin " +
+        "và có thật nhiều niềm vui trong cuộc sống. " +
+        "Mong mỗi ngày đều mang đến những điều dễ thương, " +
+        "những phút giây ấm áp " +
+        "và những bất ngờ khiến chị mỉm cười. " +
+        "Chúc chị luôn được quan tâm, trân trọng " +
+        "và yêu thương bằng những tình cảm chân thành nhất."
+    },
+
+    {
+      title: "MỘT CHÚT NGỌT NGÀO – MỘT NGÀY THẬT VUI",
+      wish:
+        "Hôm nay là dịp thật đẹp để gửi đến chị " +
+        "một lời chúc nhỏ cùng thật nhiều tình cảm.\n\n" +
+        "Chúc chị có một ngày 20/10 vui vẻ, " +
+        "với những lời hỏi thăm dễ thương, " +
+        "những cuộc trò chuyện ấm áp " +
+        "và những khoảnh khắc khiến lòng mình vui hơn. " +
+        "Mong cuộc sống của chị luôn có " +
+        "những người bạn đồng hành chân thành " +
+        "và thật nhiều niềm vui giản dị " +
+        "để mỗi ngày đều trở nên đáng quý."
+    },
+
+    {
+      title: "XINH ĐẸP THEO CÁCH RIÊNG – TỰ TIN LÀ CHÍNH MÌNH",
+      wish:
+        "Chúc chị luôn yêu quý những nét đẹp " +
+        "và giá trị riêng của bản thân, " +
+        "tự tin với lựa chọn của mình " +
+        "và giữ được niềm vui trong những điều đang làm.\n\n" +
+        "Mong chị có thêm nhiều cơ hội học hỏi, " +
+        "khám phá những điều yêu thích " +
+        "và từng bước đạt được mục tiêu đã đặt ra. " +
+        "Nhân ngày 20/10, chúc chị thật nhiều sức khỏe, " +
+        "hạnh phúc và những thành quả " +
+        "khiến chị tự hào về chính mình!"
+    },
+
+    {
+      title: "NIỀM VUI NHO NHỎ – HẠNH PHÚC THẬT TO",
+      wish:
+        "Có những niềm vui đến từ những điều rất giản dị: " +
+        "một lời hỏi thăm đúng lúc, " +
+        "một bữa cơm ấm cúng " +
+        "hay một buổi chiều được nghỉ ngơi thật thoải mái.\n\n" +
+        "Chúc chị luôn có thật nhiều khoảnh khắc " +
+        "dễ thương như thế trong cuộc sống. " +
+        "Mong những dự định của chị " +
+        "đều có những bước tiến tốt đẹp, " +
+        "những ngày bận rộn luôn có người sẻ chia. " +
+        "Chúc chị một ngày 20/10 " +
+        "ấm áp, vui vẻ và trọn vẹn!"
+    }
+  ],
+
+  /* ===== HOA CẨM TÚ CẦU ===== */
+  3: [
+    {
+      title: "GÓP CHÚT QUAN TÂM – GỬI TRỌN CHÂN THÀNH",
+      wish:
+        "Như những cánh hoa cẩm tú cầu " +
+        "cùng kết thành một đóa hoa xinh đẹp, " +
+        "mong cuộc sống của chị luôn được vun đắp " +
+        "bằng sự quan tâm và những tình cảm chân thành.\n\n" +
+        "Chúc chị luôn mạnh khỏe, bình an " +
+        "và có nhiều khoảnh khắc hạnh phúc " +
+        "bên gia đình, bạn bè. " +
+        "Mong chị luôn được lắng nghe, thấu hiểu " +
+        "và trân trọng. " +
+        "Chúc chị một ngày 20/10 " +
+        "thật ấm áp và đáng nhớ!"
+    },
+
+    {
+      title: "CẢM ƠN CHỊ VÌ NHỮNG ĐIỀU TỐT ĐẸP",
+      wish:
+        "Nhân ngày Phụ nữ Việt Nam 20/10, " +
+        "xin gửi đến chị lời cảm ơn chân thành " +
+        "vì sự tận tâm, tinh thần trách nhiệm " +
+        "và những đóng góp đáng quý trong công việc.\n\n" +
+        "Chúc chị luôn giữ được niềm yêu thích " +
+        "với những điều mình đang làm, " +
+        "có thêm cơ hội phát triển " +
+        "và gặt hái những thành quả xứng đáng. " +
+        "Mong mỗi ngày làm việc " +
+        "đều có những niềm vui nhỏ " +
+        "và những người đồng nghiệp " +
+        "sẵn lòng đồng hành, sẻ chia."
+    },
+
+    {
+      title: "LUÔN ĐƯỢC YÊU THƯƠNG – LUÔN ĐƯỢC TRÂN TRỌNG",
+      wish:
+        "Một lời hỏi thăm, một sự quan tâm " +
+        "hay một cái nắm tay đúng lúc " +
+        "đôi khi cũng đủ làm một ngày trở nên ấm áp.\n\n" +
+        "Nhân ngày 20/10, chúc chị luôn có " +
+        "những người thân yêu ở bên để sẻ chia, " +
+        "động viên và cùng lưu giữ kỷ niệm đẹp. " +
+        "Mong chị luôn cảm nhận được sự trân trọng " +
+        "từ những người xung quanh, " +
+        "có thật nhiều niềm vui " +
+        "và những ngày bình yên."
+    },
+
+    {
+      title: "THÊM MỘT NỤ CƯỜI – THÊM NGÀN ĐIỀU ĐẸP",
+      wish:
+        "Gửi chị một đóa cẩm tú cầu " +
+        "cùng lời chúc cho những ngày phía trước " +
+        "luôn có nhiều điều đáng mong chờ.\n\n" +
+        "Chúc chị có những buổi sáng bắt đầu " +
+        "bằng tâm trạng vui vẻ, " +
+        "những ngày làm việc thuận lợi " +
+        "và những buổi tối thư thái bên người thân. " +
+        "Mong chị luôn dành thời gian " +
+        "cho những điều mình yêu thích, " +
+        "chăm sóc bản thân thật tốt " +
+        "và đón nhận thật nhiều niềm vui mới."
+    }
+  ],
+
+  /* ===== HOA CÚC TRẮNG ===== */
+  4: [
+    {
+      title: "MỘT ĐÓA HOA NHỎ – MỘT LỜI CHÚC AN VUI",
+      wish:
+        "Gửi đến chị một đóa cúc trắng nhỏ xinh " +
+        "cùng những lời chúc tốt đẹp " +
+        "nhân ngày Phụ nữ Việt Nam 20/10.\n\n" +
+        "Chúc chị luôn mạnh khỏe, bình an " +
+        "và giữ được nụ cười thật tươi. " +
+        "Mong sau những ngày làm việc bận rộn, " +
+        "chị luôn có thời gian nghỉ ngơi, " +
+        "chăm sóc bản thân " +
+        "và tận hưởng những khoảnh khắc hạnh phúc " +
+        "bên gia đình, bạn bè. " +
+        "Chúc chị một ngày thật vui và ấm áp!"
+    },
+
+    {
+      title: "BÌNH YÊN TRONG TÂM – NIỀM VUI MỖI NGÀY",
+      wish:
+        "Giữa nhịp sống bận rộn, " +
+        "mong chị luôn có những khoảng lặng dễ chịu " +
+        "để nghỉ ngơi và dành thời gian cho bản thân.\n\n" +
+        "Chúc chị có thật nhiều sức khỏe, " +
+        "giữ được sự cân bằng giữa công việc và cuộc sống, " +
+        "đồng thời luôn có những người thân yêu " +
+        "ở bên quan tâm, sẻ chia. " +
+        "Nhân ngày 20/10, chúc chị " +
+        "đón nhận nhiều niềm vui giản dị " +
+        "và những khoảnh khắc thật đáng nhớ."
+    },
+
+    {
+      title: "MỘT NGÀY THẬT ĐẸP – MUÔN ĐIỀU THẬT VUI",
+      wish:
+        "Chúc chị có một ngày 20/10 " +
+        "với những nụ cười thật tươi, " +
+        "những lời chúc ấm áp " +
+        "và những bất ngờ dễ thương.\n\n" +
+        "Mong mỗi sáng thức dậy, " +
+        "chị đều có điều gì đó để mong chờ; " +
+        "mỗi ngày làm việc đều có thêm niềm vui; " +
+        "và mỗi khi trở về nhà, " +
+        "chị đều cảm nhận được sự bình yên. " +
+        "Chúc chị luôn mạnh khỏe, may mắn " +
+        "và có thêm nhiều kỷ niệm đẹp " +
+        "trên chặng đường phía trước."
+    },
+
+    {
+      title: "YÊU MÌNH MỘT CHÚT – VUI THÊM MỖI NGÀY",
+      wish:
+        "Nhân ngày Phụ nữ Việt Nam 20/10, " +
+        "mong chị dành cho bản thân " +
+        "một chút thời gian nghỉ ngơi, " +
+        "một chút yêu chiều " +
+        "và thật nhiều sự quan tâm xứng đáng.\n\n" +
+        "Chúc chị luôn tự tin với lựa chọn của mình, " +
+        "có đủ sức khỏe để theo đuổi những dự định " +
+        "và có những người thân yêu " +
+        "ở bên động viên, sẻ chia. " +
+        "Mong chị luôn tìm thấy niềm vui " +
+        "trong những điều giản dị " +
+        "và có một ngày 20/10 thật trọn vẹn!"
+    }
+  ]
 };
 
-/* QUAN LY NGUOI NHAN */
+/* ==================================
+   3. QUẢN LÝ NGƯỜI NHẬN
+================================== */
+
 let userName = "";
 let chosenWish = null;
+let chosenFlowerNumber = null;
 
-/* CHUYEN TRANG */
+const flowerCounts = {
+  1: 0,
+  2: 0,
+  3: 0,
+  4: 0
+};
+
+/* ==================================
+   4. CHUYỂN TRANG
+================================== */
+
 function nextPage(number) {
-  const target = document.getElementById(
-    "page" + number
-  );
-
+  const target = document.getElementById("page" + number);
   if (!target) return;
 
-  document.querySelectorAll(".page")
-    .forEach(function(page) {
-      page.classList.remove("active");
-    });
+  document.querySelectorAll(".page").forEach(function(page) {
+    page.classList.remove("active");
+  });
 
   target.classList.add("active");
 
@@ -811,13 +964,19 @@ function nextPage(number) {
   }
 }
 
-/* NUT BAT DAU */
+/* ==================================
+   5. NÚT BẮT ĐẦU
+================================== */
+
 document.getElementById("startButton")
   .addEventListener("click", function() {
     nextPage(2);
   });
 
-/* NHAP TEN */
+/* ==================================
+   6. NHẬP TÊN
+================================== */
+
 document.getElementById("nameForm")
   .addEventListener("submit", function(event) {
     event.preventDefault();
@@ -825,8 +984,7 @@ document.getElementById("nameForm")
     const input = document.getElementById("userName");
     const error = document.getElementById("errorName");
 
-    const name = input.value.trim()
-      .replace(/\s+/g, " ");
+    const name = input.value.trim().replace(/\s+/g, " ");
 
     if (!name) {
       error.textContent =
@@ -837,16 +995,17 @@ document.getElementById("nameForm")
 
     userName = name;
     error.textContent = "";
-
     nextPage(3);
   });
 
-/* CHON HOA */
+/* ==================================
+   7. CHỌN HOA
+================================== */
+
 document.querySelectorAll(".flower-choice")
   .forEach(function(button) {
     button.addEventListener("click", function() {
-      const number = Number(button.dataset.flower);
-      pickFlower(number);
+      pickFlower(Number(button.dataset.flower));
     });
   });
 
@@ -856,11 +1015,17 @@ function pickFlower(number) {
     return;
   }
 
-  const data = flowerMessages[number];
+  const messages = flowerMessages[number];
+  if (!messages || !messages.length) return;
 
-  if (!data) return;
+  chosenFlowerNumber = number;
 
-  chosenWish = data;
+  // Mỗi lần chọn sẽ lần lượt hiển thị
+  // lời chúc 1, 2, 3, 4 và quay về 1.
+  const index = flowerCounts[number] % messages.length;
+
+  chosenWish = messages[index];
+  flowerCounts[number]++;
 
   document.querySelectorAll(".flower-choice")
     .forEach(function(button) {
@@ -872,22 +1037,24 @@ function pickFlower(number) {
   ).classList.add("selected");
 
   const image = document.getElementById("resultImage");
-
   image.src = flowerImages[number];
-  image.alt = data.name;
+  image.alt = "Bông hoa đã chọn";
 
-  document.getElementById("resultTitle")
-    .textContent =
-      "GỬI ĐẾN " + userName.toLocaleUpperCase("vi-VN");
+  document.getElementById("resultTitle").textContent =
+    "GỬI ĐẾN CHỊ ĐẸP " +
+    userName.toLocaleUpperCase("vi-VN");
 
-  document.getElementById("wishHeading")
-    .textContent = data.title;
+  document.getElementById("wishHeading").textContent =
+    chosenWish.title;
 
-  document.getElementById("wishContent")
-    .textContent = data.wish;
+  document.getElementById("wishContent").textContent =
+    chosenWish.wish;
 
-  document.getElementById("copyNotice")
-    .textContent = "";
+  document.getElementById("wishCounter").textContent =
+    "Thông điệp " + (index + 1) +
+    " / " + messages.length;
+
+  document.getElementById("copyNotice").textContent = "";
 
   const result = document.getElementById("resultBox");
   result.style.display = "block";
@@ -900,11 +1067,25 @@ function pickFlower(number) {
   }, 120);
 }
 
-/* CHON HOA KHAC */
+/* ==================================
+   8. KHÁM PHÁ LỜI CHÚC KHÁC
+================================== */
+
+document.getElementById("nextWishButton")
+  .addEventListener("click", function() {
+    if (chosenFlowerNumber !== null) {
+      pickFlower(chosenFlowerNumber);
+    }
+  });
+
+/* ==================================
+   9. CHỌN HOA KHÁC
+================================== */
+
 document.getElementById("resetButton")
   .addEventListener("click", function() {
-
     chosenWish = null;
+    chosenFlowerNumber = null;
 
     document.getElementById("resultBox")
       .style.display = "none";
@@ -921,7 +1102,10 @@ document.getElementById("resetButton")
       });
   });
 
-/* SAO CHEP LOI CHUC */
+/* ==================================
+   10. SAO CHÉP LỜI CHÚC
+================================== */
+
 document.getElementById("copyButton")
   .addEventListener("click", copyWish);
 
@@ -929,7 +1113,7 @@ async function copyWish() {
   if (!chosenWish) return;
 
   const text =
-    "GỬI ĐẾN " +
+    "GỬI ĐẾN CHỊ ĐẸP " +
     userName.toLocaleUpperCase("vi-VN") +
     "\n\n" +
     chosenWish.title +
@@ -941,12 +1125,12 @@ async function copyWish() {
   const notice = document.getElementById("copyNotice");
 
   try {
-    if (!navigator.clipboard?.writeText) {
+    if (!navigator.clipboard ||
+        !navigator.clipboard.writeText) {
       throw new Error("Clipboard unavailable");
     }
 
     await navigator.clipboard.writeText(text);
-
     notice.textContent = "Đã sao chép lời chúc!";
 
   } catch(error) {
@@ -975,7 +1159,10 @@ async function copyWish() {
   }
 }
 
-/* PHAT HIEN ANH LOI */
+/* ==================================
+   11. PHÁT HIỆN ẢNH LỖI
+================================== */
+
 document.querySelectorAll(".flower-choice img")
   .forEach(function(img) {
 
@@ -983,9 +1170,7 @@ document.querySelectorAll(".flower-choice img")
       const warning = img.parentElement
         .querySelector(".image-error");
 
-      if (warning) {
-        warning.style.display = "block";
-      }
+      if (warning) warning.style.display = "block";
 
       console.error("Ảnh không tải được:", img.src);
     }
@@ -997,7 +1182,10 @@ document.querySelectorAll(".flower-choice img")
     }
   });
 
-/* HIEU UNG CANH HOA ROI */
+/* ==================================
+   12. HIỆU ỨNG CÁNH HOA RƠI
+================================== */
+
 const rainContainer =
   document.getElementById("flowerRain");
 
