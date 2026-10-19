@@ -5,14 +5,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#fff3f5">
-<title>Thiệp chúc mừng 20/10 - Phúc Thiện, Phúc Thịnh, 3DTV</title>
+<title>Gửi tặng những bông hồng xinh đẹp - 20/10</title>
 
 <style>
 :root {
   --pink: #ff758c;
-  --pink-light: #ff7eb3;
-  --pink-dark: #d85a70;
-  --background: linear-gradient(135deg,#fff3f5,#ffe3e8);
+  --pink2: #ff7eb3;
+  --dark: #d85a70;
 }
 
 * {
@@ -27,79 +26,71 @@ body {
   margin: 0;
   min-height: 100vh;
   min-height: 100dvh;
-  padding: 24px 12px;
+  padding: 20px 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--background);
+  background: linear-gradient(135deg,#fff3f5,#ffe3e8);
   font-family: "Segoe UI", Arial, sans-serif;
   color: #555;
   overflow-x: hidden;
 }
 
-/* HIEU UNG CANH HOA ROI */
+/* HIỆU ỨNG CÁNH HOA RƠI */
 #flowerRain {
   position: fixed;
   inset: 0;
-  overflow: hidden;
   pointer-events: none;
+  overflow: hidden;
   z-index: 0;
 }
 
 .petal {
   position: absolute;
-  top: -40px;
-  width: 14px;
-  height: 22px;
-  border-radius: 75% 0 75% 25%;
+  top: -30px;
+  background: #ffb5c8;
+  width: 13px;
+  height: 20px;
+  border-radius: 80% 0 75% 25%;
   opacity: 0;
-  background: rgba(255,143,172,.55);
-  animation: falling linear forwards;
+  animation: petalFall linear forwards;
 }
 
-.petal:nth-child(3n) {
-  background: rgba(255,205,220,.9);
-}
-
-.petal:nth-child(4n) {
-  background: rgba(255,255,255,.8);
-}
-
-@keyframes falling {
+@keyframes petalFall {
   0% {
-    transform: translate3d(0,-30px,0) rotate(0);
+    transform: translateY(-30px) rotate(0);
     opacity: 0;
   }
-  10% { opacity: .9; }
+  10% { opacity: .8; }
   90% { opacity: .8; }
   100% {
-    transform: translate3d(80px,110vh,0) rotate(540deg);
+    transform: translateY(110vh) rotate(540deg);
     opacity: 0;
   }
 }
 
-/* KHUNG CHINH */
+/* KHUNG THIỆP */
 .card {
   position: relative;
-  z-index: 2;
+  z-index: 10;
+  background: rgba(255,255,255,.97);
+  backdrop-filter: blur(12px);
+  border: 2px solid #fff;
+  border-radius: 30px;
+  padding: 48px 36px;
   width: 100%;
   max-width: 690px;
-  padding: 50px 38px;
-  background: rgba(255,255,255,.97);
-  border: 2px solid white;
-  border-radius: 30px;
-  box-shadow: 0 15px 40px rgba(255,117,140,.23);
   text-align: center;
+  box-shadow: 0 15px 40px rgba(255,117,140,.24);
 }
 
-/* CHUYEN TRANG */
 .page {
   display: none;
 }
 
 .page.active {
   display: block;
-  animation: fadeUp .5s ease both;
+  animation: fadeUp .5s ease;
 }
 
 @keyframes fadeUp {
@@ -114,7 +105,7 @@ body {
 }
 
 h1, h2 {
-  color: var(--pink-dark);
+  color: var(--dark);
   font-size: 25px;
   font-weight: 800;
   line-height: 1.55;
@@ -128,46 +119,46 @@ p {
   margin: 0 0 28px;
 }
 
-.decor-line {
+.line {
+  width: 85px;
   height: 3px;
-  width: 75px;
-  background: linear-gradient(90deg,var(--pink),#ffd1df);
-  border-radius: 10px;
   margin: 0 auto 25px;
+  border-radius: 20px;
+  background: linear-gradient(90deg,#ff758c,#ffd0df);
 }
 
-/* NUT BAM */
+/* NÚT BẤM */
 .btn {
   appearance: none;
   border: none;
-  cursor: pointer;
-  padding: 15px 35px;
-  background: linear-gradient(90deg,var(--pink),var(--pink-light));
-  color: white;
   border-radius: 50px;
-  font-size: 17px;
+  background: linear-gradient(90deg,var(--pink),var(--pink2));
+  padding: 15px 34px;
+  color: white;
   font-weight: 700;
-  box-shadow: 0 5px 18px rgba(255,117,140,.32);
-  transition: transform .2s,box-shadow .2s;
+  font-size: 17px;
+  cursor: pointer;
+  box-shadow: 0 5px 18px rgba(255,117,140,.35);
+  transition: transform .2s, box-shadow .2s;
   touch-action: manipulation;
 }
 
 .btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 22px rgba(255,117,140,.43);
-}
-
-.btn:focus-visible,
-.flower-choice:focus-visible {
-  outline: 3px solid #ad4663;
-  outline-offset: 4px;
+  box-shadow: 0 8px 22px rgba(255,117,140,.45);
 }
 
 .btn-outline {
   background: white;
-  color: var(--pink-dark);
-  border: 2px solid #ffbac9;
+  color: var(--dark);
+  border: 2px solid #ffb9ca;
   box-shadow: none;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid #bd4f70;
+  outline-offset: 3px;
 }
 
 .button-row {
@@ -175,62 +166,61 @@ p {
   flex-wrap: wrap;
   justify-content: center;
   gap: 12px;
-  margin-top: 22px;
+  margin-top: 24px;
 }
 
-/* NHAP TEN */
+/* Ô NHẬP TÊN */
 #userName {
   width: 100%;
   max-width: 440px;
+  padding: 16px 22px;
   border: 2px solid #ffd0d6;
   border-radius: 50px;
-  padding: 16px 22px;
+  background: white;
   font-size: 17px;
+  color: #444;
   text-align: center;
   outline: none;
-  margin-bottom: 15px;
-  color: #444;
-  background: white;
+  margin-bottom: 12px;
 }
 
 #userName:focus {
   border-color: var(--pink);
-  box-shadow: 0 0 12px rgba(255,117,140,.2);
 }
 
 #errorName {
-  min-height: 22px;
+  color: #c53350;
   font-size: 14px;
-  color: #c63753;
+  min-height: 23px;
   margin-bottom: 12px;
 }
 
-/* KHUNG CHON HOA */
+/* BỐN BÔNG HOA */
 .flower-grid {
   display: grid;
   grid-template-columns: repeat(2,minmax(0,1fr));
   gap: 20px;
+  max-width: 550px;
   margin: 28px auto;
-  max-width: 540px;
 }
 
 .flower-choice {
   appearance: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   border: 2px solid #ffe1e8;
-  border-radius: 20px;
   background: #fff9fa;
   padding: 12px;
+  border-radius: 20px;
   cursor: pointer;
-  text-align: center;
-  box-shadow: 0 5px 15px rgba(255,117,140,.08);
-  transition: transform .25s, box-shadow .25s, border-color .25s;
+  transition: transform .25s, border-color .25s;
 }
 
 .flower-choice:hover {
   transform: translateY(-5px);
   border-color: var(--pink);
-  box-shadow: 0 10px 25px rgba(255,117,140,.22);
 }
 
 .flower-choice.selected {
@@ -241,88 +231,91 @@ p {
 .flower-choice img {
   display: block;
   width: 100%;
-  height: 180px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 13px;
-  background: #ffeff3;
+  height: 185px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #fff;
 }
 
 .flower-name {
-  display: block;
-  font-weight: 700;
-  font-size: 15px;
   color: #d95d77;
+  font-size: 15px;
+  font-weight: 700;
   margin-top: 12px;
   line-height: 1.5;
 }
 
-/* THIEP LOI CHUC */
+/* THIỆP LỜI CHÚC */
 #resultBox {
   display: none;
   margin-top: 28px;
-  padding: 28px 24px;
-  background: linear-gradient(135deg,#fff8fa,#ffeaef);
-  border: 1px solid #ffd0dc;
+  padding: 28px 22px;
   border-radius: 22px;
-  animation: fadeUp .55s ease both;
+  border: 1px solid #ffd0dc;
+  background: linear-gradient(135deg,#fff8fa,#ffeaef);
+  animation: fadeUp .5s ease;
 }
 
-.result-image {
-  width: min(100%,225px);
-  aspect-ratio: 3/4;
-  object-fit: cover;
-  border-radius: 17px;
-  border: 4px solid white;
-  box-shadow: 0 7px 24px rgba(255,117,140,.2);
-  margin: 0 auto 18px;
+#resultImage {
   display: block;
+  width: min(100%,225px);
+  height: 270px;
+  object-fit: contain;
+  margin: 0 auto 18px;
+  background: white;
+  border: 4px solid white;
+  border-radius: 18px;
+  box-shadow: 0 7px 20px rgba(255,117,140,.15);
 }
 
 .result-title {
   color: #ca4863;
   font-size: 21px;
-  font-weight: 800;
   line-height: 1.6;
-  margin-bottom: 18px;
+  font-weight: 800;
+  margin-bottom: 17px;
 }
 
 .wish-heading {
-  font-size: 18px;
   color: #d5667f;
+  font-size: 18px;
+  line-height: 1.6;
   font-weight: 700;
   margin-bottom: 16px;
-  line-height: 1.6;
 }
 
 .wish-content {
+  color: #444;
   font-size: 16px;
   line-height: 1.9;
-  color: #444;
   white-space: pre-line;
 }
 
 .signature {
-  margin-top: 25px;
   color: #c85e75;
   font-size: 15px;
-  line-height: 1.8;
   font-weight: 700;
+  line-height: 1.8;
+  margin-top: 26px;
 }
 
 #copyNotice {
-  font-size: 13px;
-  margin-top: 15px;
-  color: #b5546d;
+  color: #ad4f68;
+  font-size: 14px;
   min-height: 18px;
+  margin-top: 15px;
 }
 
-/* GIAO DIEN DIEN THOAI */
-@media (max-width:600px) {
-  body {
-    padding: 15px 10px;
-  }
+.image-error {
+  display: none;
+  color: #ad4f68;
+  font-size: 12px;
+  line-height: 1.5;
+  margin-top: 6px;
+}
 
+/* ĐIỆN THOẠI */
+@media(max-width:600px) {
   .card {
     padding: 32px 17px;
     border-radius: 22px;
@@ -337,8 +330,8 @@ p {
   }
 
   .btn {
-    padding: 13px 24px;
     font-size: 15px;
+    padding: 13px 23px;
   }
 
   .flower-grid {
@@ -351,8 +344,7 @@ p {
   }
 
   .flower-choice img {
-    height: 160px;
-    border-radius: 10px;
+    height: 155px;
   }
 
   .flower-name {
@@ -360,15 +352,11 @@ p {
   }
 
   #resultBox {
-    padding: 23px 15px;
+    padding: 22px 14px;
   }
 
   .result-title {
     font-size: 19px;
-  }
-
-  .wish-heading {
-    font-size: 17px;
   }
 
   .wish-content {
@@ -376,18 +364,12 @@ p {
   }
 }
 
-@media (max-width:360px) {
-  .flower-choice img {
-    height: 125px;
-  }
-}
-
-@media (prefers-reduced-motion:reduce) {
+@media (prefers-reduced-motion: reduce) {
   .petal {
     display: none;
   }
 
-  *,*::before,*::after {
+  *, *::before, *::after {
     animation-duration: .01ms !important;
     transition-duration: .01ms !important;
   }
@@ -401,14 +383,15 @@ p {
 
 <main class="card">
 
-  <!-- TRANG 1 -->
-  <section class="page active" id="page1">
+  <!-- TRANG 1: CHÀO MỪNG -->
+  <section id="page1" class="page active">
+
     <h1>
       GỬI TẶNG NHỮNG BÔNG HỒNG XINH ĐẸP
       CỦA PHÚC THIỆN – PHÚC THỊNH – 3DTV
     </h1>
 
-    <div class="decor-line"></div>
+    <div class="line"></div>
 
     <p>
       Một không gian nhỏ tràn ngập những thông điệp
@@ -417,22 +400,23 @@ p {
     </p>
 
     <button
-      class="btn"
       type="button"
-      onclick="nextPage(2)"
-    >
+      class="btn"
+      id="startButton">
       Bắt đầu khám phá
     </button>
+
   </section>
 
-  <!-- TRANG 2 -->
-  <section class="page" id="page2">
+  <!-- TRANG 2: NHẬP TÊN -->
+  <section id="page2" class="page">
+
     <h2>
       XIN CHÀO NGƯỜI ĐẸP,
       CHO TỤI EM BIẾT TÊN CỦA NGƯỜI ĐẸP LÀ GÌ?
     </h2>
 
-    <div class="decor-line"></div>
+    <div class="line"></div>
 
     <p>
       Hãy cho tụi em biết tên để cùng khám phá
@@ -440,124 +424,123 @@ p {
     </p>
 
     <form id="nameForm">
+
       <input
         id="userName"
         type="text"
         placeholder="Nhập tên đáng yêu của chị vào đây..."
         maxlength="60"
         autocomplete="given-name"
-        aria-label="Tên người nhận thiệp"
-      >
+        aria-label="Tên người nhận thiệp">
 
       <div id="errorName" role="alert"></div>
 
-      <button class="btn" type="submit">
+      <button type="submit" class="btn">
         Tiếp tục
       </button>
+
     </form>
+
   </section>
 
-  <!-- TRANG 3 -->
-  <section class="page" id="page3">
+  <!-- TRANG 3: CHỌN HOA -->
+  <section id="page3" class="page">
+
     <h2>
       XIN MỜI NGƯỜI ĐẸP CỦA EM
       CHỌN MỘT BÔNG HOA
     </h2>
 
-    <div class="decor-line"></div>
+    <div class="line"></div>
 
     <p>
-      Mỗi bông hoa đang ẩn chứa một thông điệp
-      nhỏ dành riêng cho người đẹp.
+      Mỗi bông hoa đang ẩn chứa một thông điệp nhỏ
+      dành riêng cho người đẹp.
       Hãy chọn bông hoa mà chị yêu thích nhất nhé!
     </p>
 
-    <div class="flower-grid">
+    <div class="flower-grid" id="flowerGrid">
 
-      <button
+      <button type="button"
         class="flower-choice"
-        id="flower1"
-        type="button"
-        onclick="pickFlower(1)"
-      >
-        <img
-          src="hoa-huong-duong.png"
-          alt="Hoa hướng dương mặt cười"
-          loading="lazy"
-        >
+        data-flower="1">
+
+        <img src="./hoa-huong-duong.png"
+          alt="Hoa Hướng Dương mặt cười">
+
         <span class="flower-name">
           Hoa Hướng Dương
         </span>
+
+        <span class="image-error">
+          Không tìm thấy hình ảnh
+        </span>
       </button>
 
-      <button
+      <button type="button"
         class="flower-choice"
-        id="flower2"
-        type="button"
-        onclick="pickFlower(2)"
-      >
-        <img
-          src="hoa-tulip.png"
-          alt="Hoa Tulip mặt cười"
-          loading="lazy"
-        >
+        data-flower="2">
+
+        <img src="./hoa-tulip.png"
+          alt="Hoa Tulip mặt cười">
+
         <span class="flower-name">
           Hoa Tulip
         </span>
-      </button>
 
-      <button
-        class="flower-choice"
-        id="flower3"
-        type="button"
-        onclick="pickFlower(3)"
-      >
-        <img
-          src="hoa-cam-tu-cau.png"
-          alt="Hoa cẩm tú cầu mặt cười"
-          loading="lazy"
-        >
-        <span class="flower-name">
-          Hoa Cẩm Tú Cầu
+        <span class="image-error">
+          Không tìm thấy hình ảnh
         </span>
       </button>
 
-      <button
+      <button type="button"
         class="flower-choice"
-        id="flower4"
-        type="button"
-        onclick="pickFlower(4)"
-      >
-        <img
-          src="hoa-cuc-trang.png"
-          alt="Hoa cúc trắng mặt cười"
-          loading="lazy"
-        >
+        data-flower="3">
+
+        <img src="./hoa-cam-tu-cau.png"
+          alt="Hoa Cẩm Tú Cầu mặt cười">
+
+        <span class="flower-name">
+          Hoa Cẩm Tú Cầu
+        </span>
+
+        <span class="image-error">
+          Không tìm thấy hình ảnh
+        </span>
+      </button>
+
+      <button type="button"
+        class="flower-choice"
+        data-flower="4">
+
+        <img src="./hoa-cuc-trang.png"
+          alt="Hoa Cúc Trắng mặt cười">
+
         <span class="flower-name">
           Hoa Cúc Trắng
+        </span>
+
+        <span class="image-error">
+          Không tìm thấy hình ảnh
         </span>
       </button>
 
     </div>
 
-    <!-- LOI CHUC -->
-    <section
-      id="resultBox"
-      aria-live="polite"
-      aria-label="Thiệp chúc mừng"
-    >
+    <!-- PHẦN HIỂN THỊ LỜI CHÚC -->
+    <section id="resultBox" aria-live="polite">
 
-      <img
-        class="result-image"
-        id="resultImage"
-        alt="Bông hoa đã chọn"
-      >
+      <img id="resultImage"
+        alt="Bông hoa người nhận đã chọn">
 
-      <div class="result-title" id="resultTitle"></div>
+      <div class="result-title"
+        id="resultTitle"></div>
 
-      <div class="wish-heading" id="wishHeading"></div>
+      <div class="wish-heading"
+        id="wishHeading"></div>
 
-      <div class="wish-content" id="wishContent"></div>
+      <div class="wish-content"
+        id="wishContent"></div>
 
       <div class="signature">
         Thân gửi những bông hồng xinh đẹp của
@@ -565,48 +548,57 @@ p {
       </div>
 
       <div class="button-row">
-        <button
+
+        <button type="button"
           class="btn btn-outline"
-          type="button"
-          onclick="resetFlower()"
-        >
+          id="resetButton">
           Chọn hoa khác
         </button>
 
-        <button
+        <button type="button"
           class="btn"
-          type="button"
-          onclick="copyWish()"
-        >
+          id="copyButton">
           Sao chép lời chúc
         </button>
+
       </div>
 
-      <div id="copyNotice" role="status"></div>
+      <div id="copyNotice"
+        role="status"></div>
 
     </section>
 
   </section>
-
 </main>
 
 <script>
 "use strict";
 
-// DU LIEU NGUOI NHAN
-let userName = "";
-let chosenWish = null;
+/* ======================================
+   1. KHAI BÁO ĐƯỜNG DẪN ẢNH
+   PHẢI TRÙNG TÊN FILE TRÊN GITHUB
+====================================== */
 
-// NOI DUNG LOI CHUC
+const flowerImages = {
+  1: "./hoa-huong-duong.png",
+  2: "./hoa-tulip.png",
+  3: "./hoa-cam-tu-cau.png",
+  4: "./hoa-cuc-trang.png"
+};
+
+/* ======================================
+   2. NỘI DUNG LỜI CHÚC
+====================================== */
+
 const flowerMessages = {
   1: {
-    image: "hoa-huong-duong.png",
     name: "Hoa Hướng Dương",
     title: "LUÔN RẠNG RỠ NHƯ ĐÓA HƯỚNG DƯƠNG",
     wish:
       "Như những đóa hướng dương luôn hướng về ánh nắng, " +
-      "mong chị luôn giữ được nụ cười rạng rỡ, sự lạc quan " +
-      "và nguồn năng lượng tích cực rất riêng của mình.\n\n" +
+      "mong chị luôn giữ được nụ cười rạng rỡ, " +
+      "sự lạc quan và nguồn năng lượng tích cực " +
+      "rất riêng của mình.\n\n" +
       "Chúc chị thật nhiều sức khỏe, công việc thuận lợi, " +
       "mọi dự định đều có những khởi đầu tốt đẹp. " +
       "Dù bận rộn đến đâu, mong chị vẫn luôn có thời gian " +
@@ -617,7 +609,6 @@ const flowerMessages = {
   },
 
   2: {
-    image: "hoa-tulip.png",
     name: "Hoa Tulip",
     title: "DỊU DÀNG TỎA SẮC, HẠNH PHÚC ĐONG ĐẦY",
     wish:
@@ -632,7 +623,6 @@ const flowerMessages = {
   },
 
   3: {
-    image: "hoa-cam-tu-cau.png",
     name: "Hoa Cẩm Tú Cầu",
     title: "ĐONG ĐẦY YÊU THƯƠNG, TRỌN VẸN NIỀM VUI",
     wish:
@@ -650,7 +640,6 @@ const flowerMessages = {
   },
 
   4: {
-    image: "hoa-cuc-trang.png",
     name: "Hoa Cúc Trắng",
     title: "NỤ CƯỜI RẠNG RỠ, NGÀY MỚI AN VUI",
     wish:
@@ -667,17 +656,23 @@ const flowerMessages = {
   }
 };
 
-// CHUYEN TRANG
+/* ======================================
+   3. QUẢN LÝ THÔNG TIN
+====================================== */
+
+let userName = "";
+let chosenWish = null;
+
 function nextPage(number) {
-  const target = document.getElementById("page" + number);
+  const page = document.getElementById("page" + number);
 
-  if (!target) return;
+  if (!page) return;
 
-  document.querySelectorAll(".page").forEach(page => {
-    page.classList.remove("active");
+  document.querySelectorAll(".page").forEach(p => {
+    p.classList.remove("active");
   });
 
-  target.classList.add("active");
+  page.classList.add("active");
 
   window.scrollTo({
     top: 0,
@@ -691,36 +686,53 @@ function nextPage(number) {
   }
 }
 
-// NHAP TEN
-document.getElementById("nameForm")
-  .addEventListener("submit", function(event) {
-    event.preventDefault();
-    validateName();
+/* ======================================
+   4. NÚT BẮT ĐẦU
+====================================== */
+
+document.getElementById("startButton")
+  .addEventListener("click", function() {
+    nextPage(2);
   });
 
-function validateName() {
-  const input = document.getElementById("userName");
-  const error = document.getElementById("errorName");
+/* ======================================
+   5. NHẬP TÊN
+====================================== */
 
-  const value = input.value.trim().replace(/\s+/g, " ");
+document.getElementById("nameForm")
+  .addEventListener("submit", function(e) {
+    e.preventDefault();
 
-  if (!value) {
-    error.textContent =
-      "Người đẹp ơi, cho tụi em biết tên trước nhé!";
-    input.focus();
-    return;
-  }
+    const input = document.getElementById("userName");
+    const error = document.getElementById("errorName");
 
-  userName = value;
-  error.textContent = "";
+    const name = input.value.trim().replace(/\s+/g, " ");
 
-  document.getElementById("resultBox").style.display =
-    "none";
+    if (!name) {
+      error.textContent =
+        "Người đẹp ơi, cho tụi em biết tên trước nhé!";
+      input.focus();
+      return;
+    }
 
-  nextPage(3);
-}
+    userName = name;
+    error.textContent = "";
 
-// CHON HOA
+    nextPage(3);
+  });
+
+/* ======================================
+   6. CHỌN HOA
+====================================== */
+
+document.querySelectorAll(".flower-choice")
+  .forEach(button => {
+    button.addEventListener("click", function() {
+      const number = Number(this.dataset.flower);
+      pickFlower(number);
+    });
+  });
+
 function pickFlower(number) {
   if (!userName) {
     nextPage(2);
@@ -734,13 +746,17 @@ function pickFlower(number) {
   chosenWish = data;
 
   document.querySelectorAll(".flower-choice")
-    .forEach(button => button.classList.remove("selected"));
+    .forEach(button => {
+      button.classList.remove("selected");
+    });
 
-  document.getElementById("flower" + number)
-    .classList.add("selected");
+  document.querySelector(
+    '[data-flower="' + number + '"]'
+  ).classList.add("selected");
 
   const image = document.getElementById("resultImage");
-  image.src = data.image;
+
+  image.src = flowerImages[number];
   image.alt = data.name;
 
   document.getElementById("resultTitle").textContent =
@@ -762,26 +778,39 @@ function pickFlower(number) {
       behavior: "smooth",
       block: "start"
     });
-  }, 120);
+  }, 100);
 }
 
-// CHON LAI HOA
-function resetFlower() {
-  chosenWish = null;
+/* ======================================
+   7. CHỌN HOA KHÁC
+====================================== */
 
-  document.getElementById("resultBox").style.display =
-    "none";
+document.getElementById("resetButton")
+  .addEventListener("click", function() {
+    chosenWish = null;
 
-  document.querySelectorAll(".flower-choice")
-    .forEach(button => button.classList.remove("selected"));
+    document.getElementById("resultBox")
+      .style.display = "none";
 
-  document.querySelector(".flower-grid").scrollIntoView({
-    behavior: "smooth",
-    block: "center"
+    document.querySelectorAll(".flower-choice")
+      .forEach(button => {
+        button.classList.remove("selected");
+      });
+
+    document.getElementById("flowerGrid")
+      .scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
   });
-}
 
-// SAO CHEP LOI CHUC
+/* ======================================
+   8. SAO CHÉP LỜI CHÚC
+====================================== */
+
+document.getElementById("copyButton")
+  .addEventListener("click", copyWish);
+
 async function copyWish() {
   if (!chosenWish) return;
 
@@ -799,15 +828,13 @@ async function copyWish() {
   try {
     if (!navigator.clipboard ||
         !navigator.clipboard.writeText) {
-      throw new Error("Clipboard API unavailable");
+      throw new Error("Clipboard unavailable");
     }
 
     await navigator.clipboard.writeText(text);
+    notice.textContent = "Đã sao chép lời chúc!";
 
-    notice.textContent =
-      "Đã sao chép lời chúc thành công!";
-
-  } catch(error) {
+  } catch (e) {
     const textarea = document.createElement("textarea");
     textarea.value = text;
     textarea.style.position = "fixed";
@@ -821,20 +848,48 @@ async function copyWish() {
 
     try {
       copied = document.execCommand("copy");
-    } catch(e) {
+    } catch (error) {
       copied = false;
     }
 
     textarea.remove();
 
     notice.textContent = copied
-      ? "Đã sao chép lời chúc thành công!"
-      : "Không thể sao chép tự động. Vui lòng sao chép nội dung thủ công.";
+      ? "Đã sao chép lời chúc!"
+      : "Không thể sao chép tự động.";
   }
 }
 
-// HIEU UNG CANH HOA ROI
-const rain = document.getElementById("flowerRain");
+/* ======================================
+   9. KIỂM TRA ĐƯỜNG DẪN ẢNH
+====================================== */
+
+document.querySelectorAll(".flower-choice img")
+  .forEach(img => {
+
+    function reportError() {
+      const warning = img.parentElement
+        .querySelector(".image-error");
+
+      if (warning) {
+        warning.style.display = "block";
+      }
+
+      console.error("Không tải được ảnh:", img.src);
+    }
+
+    img.addEventListener("error", reportError);
+
+    if (img.complete && img.naturalWidth === 0) {
+      reportError();
+    }
+  });
+
+/* ======================================
+   10. HIỆU ỨNG CÁNH HOA
+====================================== */
+
+const rainContainer = document.getElementById("flowerRain");
 
 function createPetal() {
   if (document.hidden) return;
@@ -849,21 +904,19 @@ function createPetal() {
   petal.style.height = (14 + Math.random() * 13) + "px";
   petal.style.animationDuration = duration + "s";
 
-  rain.appendChild(petal);
+  rainContainer.appendChild(petal);
 
-  petal.addEventListener("animationend", () => {
+  petal.addEventListener("animationend", function() {
     petal.remove();
-  }, {once:true});
+  }, { once: true });
 }
 
-const reducedMotion = window.matchMedia(
+if (!window.matchMedia(
   "(prefers-reduced-motion: reduce)"
-);
-
-if (!reducedMotion.matches) {
+).matches) {
   setInterval(createPetal, 450);
 }
-</script>
 
+</script>
 </body>
 </html>
